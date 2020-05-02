@@ -3,6 +3,29 @@ __This is a Clojure, Python and JavaScript friendly emacs config__
 
 This repo was originally forked from the [emacs for clojure repo](https://github.com/flyingmachine/emacs-for-clojure). 
 
+
+## Customizations
+### UI
+* Menu bar is turned off
+* Show line numbers
+* Graphical toolbar is removed
+* Dark theme
+* Custom window size and position (customized for the machine I am using - a Dell XPS 13)
+* Navigation up & down smoothly, without the annoying buffer centering
+* Disabled the Emacs startup message
+
+... and more. Have a look at the [ui.el](./customizations/ui.el) file and the other config files in the [customizations](./customizations/) folder.
+
+### Editing
+* Comment and uncomment a line or section with `C-;`
+* Enable special chars in the editor, like ~ and ^.
+* Move text up and down with `control shift up` and `control shift down`
+* Multiple select, "mark next like this" with `C->`
+* Disabled the "suspend-frame" command, too easy to press `C-z` by mistake
+* Disabled the Emacs startup message
+
+... and more. Have a look at the files in the [customizations](./customizations/) folder.
+
 ## Packages
 
 ### add-node-modules-path
