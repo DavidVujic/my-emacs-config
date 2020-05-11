@@ -34,6 +34,7 @@
     markdown-mode
     move-text
     multiple-cursors
+    neotree
     pandoc-mode
     paredit
     projectile
