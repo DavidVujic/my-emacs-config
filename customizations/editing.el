@@ -76,3 +76,6 @@
 
 ;; Replace highlighted text when you type
 (delete-selection-mode 1)
+
+(emojify-set-emoji-styles '(unicode))
+(add-hook 'after-init-hook #'global-emojify-mode)

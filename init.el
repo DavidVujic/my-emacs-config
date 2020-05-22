@@ -9,6 +9,7 @@
 (add-to-list 'package-pinned-packages '(projectile . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(editorconfig . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(emojify . "melpa-stable") t)
 
 (package-initialize)
 
@@ -26,6 +27,7 @@
     dumb-jump
     editorconfig
     elpy
+    emojify
     exec-path-from-shell
     flycheck
     flycheck-clj-kondo
