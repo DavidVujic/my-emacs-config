@@ -32,6 +32,7 @@
     flycheck
     flycheck-clj-kondo
     ido-completing-read+
+    json-mode
     magit
     markdown-mode
     move-text
