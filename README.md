@@ -56,7 +56,10 @@ Dumb Jump is an Emacs "jump to definition" package with support for 40+ programm
 EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs.
 
 ### elpy
-The Emacs Lisp Python Environment in Emacs
+The Emacs Lisp Python Environment in Emacs.
+
+### emojify
+Display emojis in Emacs.
 
 ### exec-path-from-shell
 Allows environment variables to be retrieved from the shell, so that Emacs will see the same values you get in a terminal.
@@ -69,6 +72,9 @@ This package integrates clj-kondo with Emacs via flycheck.
 
 ### ido-completing-read+
 If you use the excellent `ido-mode' for efficient completion of file names and buffers, you might wonder if you can get ido-style completion everywhere else too.
+
+### json-mode
+Major mode for editing JSON files. Extends the builtin js-mode to add better syntax highlighting for JSON and some nice editing keybindings.
 
 ### magit
 Magit is an interface to the version control system Git, implemented as an Emacs package.
