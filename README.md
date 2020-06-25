@@ -49,6 +49,9 @@ These five color themes are designed for use with Emacs' built-in theme support 
 ### company
 Company is a modular completion framework.  Modules for retrieving completion candidates are called backends, modules for displaying them are frontends.
 
+### dockerfile-mode
+Major mode for editing Dockerfiles
+
 ### dumb-jump
 Dumb Jump is an Emacs "jump to definition" package with support for 40+ programming languages that favors "just working" over speed or accuracy.
 

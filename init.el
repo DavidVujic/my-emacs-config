@@ -24,6 +24,7 @@
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow
     company
+    dockerfile-mode
     dumb-jump
     editorconfig
     elpy
@@ -64,6 +65,7 @@
 (load "setup-python.el")
 (load "setup-markdown.el")
 (load "setup-yaml.el")
+(load "setup-docker.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
