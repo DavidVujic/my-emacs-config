@@ -44,7 +44,8 @@
     rainbow-delimiters
     smex
     tagedit
-    web-mode))
+    web-mode
+    yaml-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -62,6 +63,7 @@
 (load "setup-js.el")
 (load "setup-python.el")
 (load "setup-markdown.el")
+(load "setup-yaml.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

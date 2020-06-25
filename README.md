@@ -111,3 +111,6 @@ A collection of paredit-like functions for editing in html-mode.
 
 ### web-mode
 Major mode for editing web templates.
+
+### yaml-mode
+Major mode for editing YAML files.
