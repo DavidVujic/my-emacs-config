@@ -10,6 +10,7 @@
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(editorconfig . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(emojify . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(yaml-mode . "melpa-stable") t)
 
 (package-initialize)
 
