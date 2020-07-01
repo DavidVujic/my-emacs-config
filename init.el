@@ -1,3 +1,9 @@
+;;; init.el --- initialization file for Emacs
+
+;;; Commentary:
+;; Emacs startup file
+
+;;; Code:
 (require 'package)
 
 (add-to-list 'package-archives
@@ -81,3 +87,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(provide 'init)
+
+;;; init.el ends here

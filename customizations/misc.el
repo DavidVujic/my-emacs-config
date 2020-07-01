@@ -1,3 +1,10 @@
+;;; misc.el --- Misc
+
+;;; Commentary:
+;; Miscellaneous customizations
+
+;;; Code:
+
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -13,3 +20,6 @@
 
 ;; "suspend-frame" command, too easy to press it by mistake
 (global-unset-key (kbd "C-z"))
+(provide 'misc)
+
+;;; misc.el ends here

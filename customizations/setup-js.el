@@ -1,4 +1,9 @@
-;; javascript / html
+;;; setup-js.el --- JavaScript and HTML
+;;; Commentary:
+;; javascript and html customizations
+
+;;; Code:
+
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-hook 'js-mode-hook 'subword-mode)
 (add-hook 'html-mode-hook 'subword-mode)
@@ -26,3 +31,7 @@
 
 ; Enable eslint checker for web-mode
 (flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(provide 'setup-js)
+
+;;; setup-js.el ends here
