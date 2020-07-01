@@ -1,3 +1,8 @@
+;;; editing.el --- Editing
+;;; Commentary:
+;; Editor customizations
+
+;;; Code:
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 (setq hippie-expand-try-functions-list
@@ -27,28 +32,13 @@
 (setq auto-save-default nil)
 
 (defun toggle-comment-on-line-or-region ()
-  "comment or uncomment current line, or region if selected"
+  "Comment or uncomment current line, or region if selected."
   (interactive "*")
   (if (use-region-p)
     (comment-or-uncomment-region (region-beginning) (region-end))
   (comment-or-uncomment-region (line-beginning-position) (line-end-position))))
 
 (global-set-key (kbd "C-;") 'toggle-comment-on-line-or-region)
-
-;; use 2 spaces for tabs
-(defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
-
-;; fix weird os x kill error
-(defun ns-get-pasteboard ()
-  "Returns the value of the pasteboard, or nil for unsupported formats."
-  (condition-case nil
-      (ns-get-selection-internal 'CLIPBOARD)
-    (quit nil)))
 
 (setq electric-indent-mode nil)
 
@@ -79,3 +69,7 @@
 
 (emojify-set-emoji-styles '(unicode))
 (add-hook 'after-init-hook #'global-emojify-mode)
+
+(provide 'editing)
+
+;;; editing.el ends here

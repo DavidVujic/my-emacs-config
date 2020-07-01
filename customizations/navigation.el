@@ -1,15 +1,18 @@
+;;; navigation.el --- Navigation
+;;; Commentary:
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
-
-
 ;; "When several buffers visit identically-named files,
-;; Emacs must give the buffers distinct names. The usual method
-;; for making buffer names unique adds ‘<2>’, ‘<3>’, etc. to the end
+;; Emacs must give the buffers distinct names.
+;; The usual method for making buffer names unique adds ‘<2>’, ‘<3>’, etc to the end
 ;; of the buffer names (all but one of them).
 ;; The forward naming method includes part of the file's directory
 ;; name at the beginning of the buffer name
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
+
+;;; Code:
 (require 'uniquify)
+
 (setq uniquify-buffer-name-style 'forward)
 
 ;; Turn on recent file mode so that you can more easily switch to
@@ -63,3 +66,6 @@
 (projectile-mode +1)
 
 ;; (setq projectile-project-search-path '("~/my-path-to-code-projects/"))
+(provide 'navigation)
+
+;;; navigation.el ends here

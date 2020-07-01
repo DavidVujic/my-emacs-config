@@ -1,8 +1,16 @@
+;;; setup-clojure.el --- Clojure editing
+;;; Commentary:
+;; Clojure and Cider customizations
+
+
+;;; Code:
+
 ;;;;
 ;; Clojure
 ;;;;
 
 ;; Enable paredit for Clojure
+
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
 ;; This is useful for working with camel-case tokens, like names of
@@ -10,7 +18,8 @@
 (add-hook 'clojure-mode-hook 'subword-mode)
 
 ;; A little more syntax highlighting
-(require 'clojure-mode-extra-font-locking)
+
+ (require 'clojure-mode-extra-font-locking)
 
 ;; syntax hilighting for midje
 (add-hook 'clojure-mode-hook
@@ -59,6 +68,7 @@
 ;; key bindings
 ;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
+  "Key bindings."
   (interactive)
   (cider-load-current-buffer)
   (let ((ns (cider-current-ns)))
@@ -68,10 +78,12 @@
 
 
 (defun cider-refresh ()
+  "Cider refresh."
   (interactive)
   (cider-interactive-eval (format "(user/reset)")))
 
 (defun cider-user-ns ()
+  "Cider set user namespace."
   (interactive)
   (cider-repl-set-ns "user"))
 
@@ -85,3 +97,7 @@
 ;; clojure linter
 (require 'flycheck-clj-kondo)
 (global-flycheck-mode)
+
+(provide 'setup-clojure)
+
+;;; setup-clojure.el ends here
