@@ -10,6 +10,9 @@
 ;; Show line numbers
 (global-linum-mode)
 
+;; Show column number in the mode line
+(column-number-mode 1)
+
 ;; You can uncomment this to remove the graphical toolbar at the top. After
 ;; awhile, you won't need the toolbar.
 (when (fboundp 'tool-bar-mode)
