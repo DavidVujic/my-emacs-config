@@ -31,10 +31,8 @@
   (set-face-attribute 'default nil :height 142 :font "DejaVu Sans Mono")
 )
 
-;; Uncomment the lines below by removing semicolons and play with the
-;; values in order to set the width (in characters wide) and height
-;; (in lines high) Emacs will have whenever you start it
-(setq initial-frame-alist '((top . 0) (left . 0) (width . 140) (height . 35)))
+;; Start Emacs maximized
+(toggle-frame-maximized)
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
