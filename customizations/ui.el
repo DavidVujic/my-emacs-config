@@ -76,6 +76,15 @@
 ;; Prevent re-centering when going up and down buffer with arrow keys
 (setq scroll-conservatively 101)
 
+;; neotree settings
+(custom-set-faces
+ '(neo-root-dir-face ((t (:height 125))))
+ '(neo-dir-link-face ((t (:height 125))))
+ '(neo-file-link-face ((t (:height 125 :foreground "silver")))))
+
+(setq neo-theme (if (display-graphic-p) 'nerd 'arrow))
+(setq neo-window-fixed-size nil)
+
 (provide 'ui)
 
 ;;; ui.el ends here
