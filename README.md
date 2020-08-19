@@ -112,6 +112,9 @@ M-x interface with Ido-style fuzzy matching.
 ### tagedit
 A collection of paredit-like functions for editing in html-mode.
 
+### typescript-mode
+Major mode for editing typescript files.
+
 ### web-mode
 Major mode for editing web templates.
 
