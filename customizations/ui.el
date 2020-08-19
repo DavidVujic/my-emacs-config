@@ -26,6 +26,9 @@
   (scroll-bar-mode -1))
 
 (load-theme 'sanityinc-tomorrow-bright t)
+;; override theme background color
+(set-background-color "#141414")
+
 (if (eq system-type 'darwin)
   (set-face-attribute 'default nil :height 168 :font "Menlo")
   (set-face-attribute 'default nil :height 142 :font "DejaVu Sans Mono")
