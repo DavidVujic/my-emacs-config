@@ -31,7 +31,7 @@
 
 (if (eq system-type 'darwin)
   (set-face-attribute 'default nil :height 168 :font "Menlo")
-  (set-face-attribute 'default nil :height 142 :font "DejaVu Sans Mono")
+  (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono")
 )
 
 ;; Start Emacs maximized
