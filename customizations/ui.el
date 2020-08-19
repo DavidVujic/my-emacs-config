@@ -36,6 +36,7 @@
 
 ;; Start Emacs maximized
 (toggle-frame-maximized)
+(toggle-frame-fullscreen)
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
