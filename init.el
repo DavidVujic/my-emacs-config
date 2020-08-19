@@ -17,6 +17,7 @@
 (add-to-list 'package-pinned-packages '(editorconfig . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(emojify . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(yaml-mode . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(mode-typescript . "melpa-stable") t)
 
 (package-initialize)
 
@@ -52,6 +53,7 @@
     rainbow-delimiters
     smex
     tagedit
+    typescript-mode
     web-mode
     yaml-mode))
 
@@ -86,7 +88,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(neo-dir-link-face ((t (:height 125))))
+ '(neo-file-link-face ((t (:height 125 :foreground "silver"))))
+ '(neo-root-dir-face ((t (:height 125)))))
 
 (provide 'init)
 
