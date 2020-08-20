@@ -29,10 +29,18 @@
 ;; override theme background color
 (set-background-color "#141414")
 
+;; Set fonts with fallback, and different sizes depending on system
 (if (eq system-type 'darwin)
-  (set-face-attribute 'default nil :height 168 :font "Menlo")
-  (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono")
-)
+  (cond
+    ((member "Fira Mono" (font-family-list))
+      (set-face-attribute 'default nil :height 168 :font "Fira Mono"))
+    ((member "Menlo" (font-family-list))
+      (set-face-attribute 'default nil :height 168 :font "Menlo")))
+   (cond
+    ((member "Fira Mono" (font-family-list))
+      (set-face-attribute 'default nil :height 138 :font "Fira Mono"))
+    ((member "DejaVu Sans Mono" (font-family-list))
+      (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
 
 ;; Start Emacs maximized
 (toggle-frame-maximized)
