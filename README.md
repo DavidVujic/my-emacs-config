@@ -76,6 +76,9 @@ This package integrates clj-kondo with Emacs via flycheck.
 ### ido-completing-read+
 If you use the excellent `ido-mode' for efficient completion of file names and buffers, you might wonder if you can get ido-style completion everywhere else too.
 
+### js2-mode
+Improved JavaScript editing mode.
+
 ### json-mode
 Major mode for editing JSON files. Extends the builtin js-mode to add better syntax highlighting for JSON and some nice editing keybindings.
 
@@ -112,8 +115,8 @@ M-x interface with Ido-style fuzzy matching.
 ### tagedit
 A collection of paredit-like functions for editing in html-mode.
 
-### typescript-mode
-Major mode for editing typescript files.
+### tide
+TypeScript interactive development environment for Emacs.
 
 ### web-mode
 Major mode for editing web templates.
