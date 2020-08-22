@@ -47,6 +47,7 @@
 
 ;; auto complete
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-tooltip-align-annotations t)
 
 ;; jump to definition
 (dumb-jump-mode)
