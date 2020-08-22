@@ -17,7 +17,8 @@
 (add-to-list 'package-pinned-packages '(editorconfig . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(emojify . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(yaml-mode . "melpa-stable") t)
-(add-to-list 'package-pinned-packages '(typescript-mode . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(js2-mode . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(tide . "melpa-stable") t)
 
 (package-initialize)
 
@@ -41,6 +42,7 @@
     flycheck
     flycheck-clj-kondo
     ido-completing-read+
+    js2-mode
     json-mode
     magit
     markdown-mode
@@ -53,7 +55,7 @@
     rainbow-delimiters
     smex
     tagedit
-    typescript-mode
+    tide
     web-mode
     yaml-mode))
 
@@ -70,6 +72,7 @@
 (load "misc.el")
 (load "elisp-editing.el")
 (load "setup-clojure.el")
+(load "setup-html.el")
 (load "setup-js.el")
 (load "setup-python.el")
 (load "setup-markdown.el")
