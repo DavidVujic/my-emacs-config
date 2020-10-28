@@ -49,6 +49,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-tooltip-align-annotations t)
 
+;; auto complete with docstrings
+(company-quickhelp-mode)
+
 ;; jump to definition
 (dumb-jump-mode)
 (global-set-key (kbd "C-M-å") 'dumb-jump-back)

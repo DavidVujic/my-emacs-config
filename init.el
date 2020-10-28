@@ -13,6 +13,7 @@
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(company . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(company-quickhelp . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(editorconfig . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(emojify . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(js2-mode . "melpa-stable") t)
@@ -34,6 +35,7 @@
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow
     company
+    company-quickhelp
     dockerfile-mode
     dumb-jump
     editorconfig
