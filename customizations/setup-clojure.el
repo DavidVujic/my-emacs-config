@@ -19,7 +19,7 @@
 
 ;; A little more syntax highlighting
 
- (require 'clojure-mode-extra-font-locking)
+(require 'clojure-mode-extra-font-locking)
 
 ;; syntax hilighting for midje
 (add-hook 'clojure-mode-hook
