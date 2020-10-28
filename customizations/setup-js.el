@@ -23,6 +23,7 @@
   (company-mode +1))
 
 (add-hook 'js2-mode-hook #'setup-tide-mode)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
