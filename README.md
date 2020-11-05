@@ -103,6 +103,9 @@ Minor mode for interacting with Pandoc.
 ### paredit
 Minor mode for editing parentheses.
 
+### pipenv
+A Pipenv porcelain inside Emacs.
+
 ### projectile
 Manage and navigate projects in Emacs easily
 
