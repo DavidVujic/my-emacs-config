@@ -54,6 +54,7 @@
     neotree
     pandoc-mode
     paredit
+    pipenv
     projectile
     rainbow-delimiters
     smex
