@@ -1,14 +1,15 @@
 ;;; setup-python.el --- Python
 
 ;;; Commentary:
-;; enable elpy
+;;  python customizations
+
 
 ;;; Code:
 
+(require 'pyenv-mode-auto)
 (elpy-enable)
 
-;; Enable Flycheck
-(when (require 'flycheck nil t)
+(when (load "flycheck" t t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
@@ -16,4 +17,4 @@
 
 (provide 'setup-python)
 
-;;; setup-python.el ends here
+;;; setup-python.el ends heres

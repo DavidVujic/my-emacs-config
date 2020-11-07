@@ -56,6 +56,7 @@
     paredit
     pipenv
     projectile
+    pyenv-mode-auto
     rainbow-delimiters
     smex
     tagedit
