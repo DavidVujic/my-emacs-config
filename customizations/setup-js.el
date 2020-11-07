@@ -3,7 +3,6 @@
 ;; javascript customizations
 
 ;;; Code:
-(require 'flycheck)
 
 ;; add local node modules to path
 (add-hook 'flycheck-mode-hook 'add-node-modules-path)

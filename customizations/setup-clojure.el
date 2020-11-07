@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;; Clojure and Cider customizations
 
-
 ;;; Code:
 
 ;;;;
@@ -96,7 +95,6 @@
 
 ;; clojure linter
 (require 'flycheck-clj-kondo)
-(global-flycheck-mode)
 
 (provide 'setup-clojure)
 

@@ -45,6 +45,10 @@
 ;; enable special chars in the editor, like ~ and ^.
 (load-library "iso-transl")
 
+;; syntax checking
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;; auto complete
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-tooltip-align-annotations t)
