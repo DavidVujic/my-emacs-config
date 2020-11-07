@@ -109,6 +109,10 @@ A Pipenv porcelain inside Emacs.
 ### projectile
 Manage and navigate projects in Emacs easily
 
+### pyenv-mode-auto
+Automatically activate pyenv version from Emacs with pyenv-mode.
+Activates the selected python version by traversing directories to find a .python-version file.
+
 ### rainbow-delimiters
 Rainbow-delimiters is a "rainbow parentheses"-like mode which highlights parentheses, brackets, and braces according to their depth. Each successive level is highlighted in a different color. This makes it easy to spot matching delimiters, orient yourself in the code, and tell which statements are at a given level.
 
