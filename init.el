@@ -35,6 +35,7 @@
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow
     company
+    company-jedi
     company-quickhelp
     dockerfile-mode
     dumb-jump

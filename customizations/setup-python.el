@@ -6,14 +6,19 @@
 
 ;;; Code:
 
-(require 'pyenv-mode-auto)
 (elpy-enable)
 
 (when (load "flycheck" t t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(add-hook 'python-mode-hook #'pipenv-mode)
+(defun setup-python-mode ()
+  (require 'pyenv-mode-auto)
+  (setq gud-pdb-command-name "python -m pdb")
+  (add-to-list 'company-backends 'company-jedi)
+  (pipenv-mode +1))
+
+(add-hook 'python-mode-hook 'setup-python-mode)
 
 (provide 'setup-python)
 
