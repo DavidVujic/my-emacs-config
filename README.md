@@ -49,6 +49,10 @@ These five color themes are designed for use with Emacs' built-in theme support 
 ### company
 Company is a modular completion framework.  Modules for retrieving completion candidates are called backends, modules for displaying them are frontends.
 
+### company-jedi
+company-mode completion back-end for Python JEDI.
+(NOTE: I had to run `jedi:install-server` from within emacs to make this backend work)
+
 ### dockerfile-mode
 Major mode for editing Dockerfiles
 
