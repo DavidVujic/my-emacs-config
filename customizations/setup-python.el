@@ -15,7 +15,10 @@
 (defun setup-python-mode ()
   (require 'pyenv-mode-auto)
   (setq gud-pdb-command-name "python -m pdb")
+  (setq jedi:complete-on-dot t)
+  (setq jedi:get-in-function-call-delay 0)
   (add-to-list 'company-backends 'company-jedi)
+  (jedi-mode)
   (pipenv-mode +1))
 
 (add-hook 'python-mode-hook 'setup-python-mode)
