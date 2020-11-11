@@ -58,7 +58,7 @@
 
 ;; jump to definition
 (dumb-jump-mode)
-(global-set-key (kbd "C-M-å") 'dumb-jump-back)
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 (set-default 'truncate-lines t)
 (editorconfig-mode 1)
