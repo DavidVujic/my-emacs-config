@@ -58,6 +58,7 @@ Major mode for editing Dockerfiles
 
 ### dumb-jump
 Dumb Jump is an Emacs "jump to definition" package with support for 40+ programming languages that favors "just working" over speed or accuracy.
+Note: to be able to find and jump to re-agent events and subscriptions I have added Silversearcher according to the dumb-jump install instructions. The lecacy dumb-jump-go, however, do find those without the extra OS dependency.
 
 ### editorconfig
 EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs.
