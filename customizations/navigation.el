@@ -68,4 +68,8 @@
 ;; (setq projectile-project-search-path '("~/my-path-to-code-projects/"))
 (provide 'navigation)
 
+;; jump to definition
+(dumb-jump-mode)
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
 ;;; navigation.el ends here

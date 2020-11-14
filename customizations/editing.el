@@ -56,10 +56,6 @@
 ;; auto complete with docstrings
 (company-quickhelp-mode)
 
-;; jump to definition
-(dumb-jump-mode)
-(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-
 (set-default 'truncate-lines t)
 (editorconfig-mode 1)
 
