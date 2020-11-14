@@ -20,6 +20,10 @@
 
 ;; "suspend-frame" command, too easy to press it by mistake
 (global-unset-key (kbd "C-z"))
+
+(require 'which-key)
+(which-key-mode)
+
 (provide 'misc)
 
 ;;; misc.el ends here
