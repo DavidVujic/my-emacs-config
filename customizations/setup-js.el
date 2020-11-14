@@ -9,7 +9,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
 
 (defun setup-tide-mode ()
   "Tide mode setup according to the official guide."
@@ -24,6 +23,12 @@
 (add-hook 'js2-mode-hook #'setup-tide-mode)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+
+(flycheck-add-mode 'typescript-tslint 'web-mode)
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
 (provide 'setup-js)

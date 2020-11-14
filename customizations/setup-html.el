@@ -14,6 +14,7 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[jt]sx\\'" . web-mode))
 
 (provide 'setup-html)
 
