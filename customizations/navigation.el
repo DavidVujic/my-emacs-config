@@ -65,11 +65,11 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode +1)
 
-;; (setq projectile-project-search-path '("~/my-path-to-code-projects/"))
-(provide 'navigation)
-
 ;; jump to definition
 (dumb-jump-mode)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
+;; (setq projectile-project-search-path '("~/my-path-to-code-projects/"))
+(provide 'navigation)
 
 ;;; navigation.el ends here
