@@ -19,6 +19,7 @@
 (add-to-list 'package-pinned-packages '(js2-mode . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(projectile . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(super-save . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(yaml-mode . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(tide . "melpa-stable") t)
 
@@ -60,6 +61,7 @@
     pyenv-mode-auto
     rainbow-delimiters
     smex
+    super-save
     tagedit
     tide
     web-mode

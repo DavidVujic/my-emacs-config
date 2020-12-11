@@ -24,6 +24,10 @@
 (require 'which-key)
 (which-key-mode)
 
+(require 'super-save)
+(super-save-mode +1)
+(setq super-save-remote-files nil)
+
 (provide 'misc)
 
 ;;; misc.el ends here
