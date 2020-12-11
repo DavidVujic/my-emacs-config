@@ -23,6 +23,7 @@ This repo was originally forked from the [emacs for clojure repo](https://github
 * Multiple select, "mark next like this" with `C->`
 * Disabled the "suspend-frame" command, too easy to press `C-z` by mistake
 * Disabled the Emacs startup message
+* A buffer is auto saved when losing focus (using the package `super-save`)
 
 ... and more. Have a look at the files in the [customizations](./customizations/) folder.
 
@@ -123,6 +124,10 @@ Rainbow-delimiters is a "rainbow parentheses"-like mode which highlights parenth
 
 ### smex
 M-x interface with Ido-style fuzzy matching.
+
+### super-save
+super-save auto-saves your buffers, when certain events happen - e.g. you switch between buffers, an Emacs frame loses focus, etc.
+You can think of it as both something that augments and replaces the standard auto-save-mode.
 
 ### tagedit
 A collection of paredit-like functions for editing in html-mode.
