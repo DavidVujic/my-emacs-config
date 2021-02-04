@@ -38,7 +38,7 @@
       (set-face-attribute 'default nil :height 168 :font "Menlo")))
    (cond
     ((member "Fira Mono" (font-family-list))
-      (set-face-attribute 'default nil :height 138 :font "Fira Mono"))
+      (set-face-attribute 'default nil :height 152 :font "Fira Mono"))
     ((member "DejaVu Sans Mono" (font-family-list))
       (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
 
