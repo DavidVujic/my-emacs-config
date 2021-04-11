@@ -48,6 +48,7 @@
     flycheck-clj-kondo
     ido-completing-read+
     js2-mode
+    js-comint
     json-mode
     magit
     markdown-mode
