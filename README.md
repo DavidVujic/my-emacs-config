@@ -85,6 +85,9 @@ If you use the excellent `ido-mode' for efficient completion of file names and b
 ### js2-mode
 Improved JavaScript editing mode.
 
+### js-comint
+Run a JavaScript interpreter in an inferior process window.
+
 ### json-mode
 Major mode for editing JSON files. Extends the builtin js-mode to add better syntax highlighting for JSON and some nice editing keybindings.
 
