@@ -7,7 +7,7 @@
 ;; add local node modules to path
 (add-hook 'flycheck-mode-hook 'add-node-modules-path)
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.[c|m]?js\\'" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
 (require 'js-comint)
