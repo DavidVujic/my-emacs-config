@@ -46,6 +46,7 @@
     exec-path-from-shell
     flycheck
     flycheck-clj-kondo
+    graphql-mode
     ido-completing-read+
     js2-mode
     js-comint

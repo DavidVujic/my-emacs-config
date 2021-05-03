@@ -79,6 +79,9 @@ On-the-fly syntax checking for GNU Emacs 24.
 ### flycheck-clj-kondo
 This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed on your machine (`npm install -g clj-kondo`).
 
+### graphql-mode
+graphql-mode is an emacs mode to edit GraphQL schema and queries.
+
 ### ido-completing-read+
 If you use the excellent `ido-mode' for efficient completion of file names and buffers, you might wonder if you can get ido-style completion everywhere else too.
 
