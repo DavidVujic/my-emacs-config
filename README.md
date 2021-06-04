@@ -9,7 +9,7 @@ This repo was originally forked from the [emacs for clojure repo](https://github
 * Menu bar is turned off
 * Show line numbers
 * Graphical toolbar is removed
-* Dark theme
+* Dark theme (on first run, you probably have to confirm that Emacs should be allowed to load the theme)
 * Custom window size and position (customized for the machine I am using - a Dell XPS 13)
 * Navigation up & down smoothly, without the annoying buffer centering
 * Disabled the Emacs startup message
