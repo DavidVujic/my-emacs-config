@@ -22,6 +22,7 @@
 (add-to-list 'package-pinned-packages '(super-save . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(yaml-mode . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(tide . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
 
 (package-initialize)
 
@@ -32,6 +33,7 @@
   '(add-node-modules-path
     blacken
     cider
+    clj-refactor
     clojure-mode
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow

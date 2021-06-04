@@ -63,7 +63,6 @@
 (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojurescript-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
-
 (defun cider-refresh ()
   "Cider refresh."
   (interactive)
@@ -82,6 +81,18 @@
 
 ;; clojure linter
 (require 'flycheck-clj-kondo)
+
+;; clojure refactor support
+(require 'clj-refactor)
+
+(defun my-clojure-mode-hook ()
+  "Clojure refactor support."
+  (clj-refactor-mode 1)
+  (yas-minor-mode 1)        ; for adding require/use/import statements
+  ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+  (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
 (provide 'setup-clojure)
 

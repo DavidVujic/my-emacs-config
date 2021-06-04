@@ -38,6 +38,9 @@ Blacken uses black to format a Python buffer.  It can be called explicitly on a 
 ### cider
 Provides a Clojure interactive development environment for Emacs, built on top of nREPL.
 
+### clj-refactor
+Provides refactoring support for Clojure projects. It complements the refactoring functionality you'd find in clojure-mode and CIDER.
+
 ### clojure-mode
 Provides font-lock, indentation, navigation and basic refactoring for the Clojure programming language (http://clojure.org).
 
