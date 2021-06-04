@@ -25,9 +25,11 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(load-theme 'sanityinc-tomorrow-bright t)
-;; override theme background color
-(set-background-color "#141414")
+;; Set default background color, to avoid a bright screen shock before loading a Dark Theme is triggered
+(set-background-color "#000000")
+
+;; Load theme
+(add-hook 'after-init-hook (lambda () (load-theme 'sanityinc-tomorrow-bright)))
 
 ;; Set fonts with fallback, and different sizes depending on system
 (if (eq system-type 'darwin)
