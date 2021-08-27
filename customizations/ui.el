@@ -39,8 +39,8 @@
     ((member "Menlo" (font-family-list))
       (set-face-attribute 'default nil :height 168 :font "Menlo")))
    (cond
-    ((member "Fira Mono" (font-family-list))
-      (set-face-attribute 'default nil :height 152 :font "Fira Mono"))
+    ((member "Roboto Mono" (font-family-list))
+      (set-face-attribute 'default nil :height 128 :font "Roboto Mono"))
     ((member "DejaVu Sans Mono" (font-family-list))
       (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
 
@@ -92,9 +92,9 @@
 
 ;; neotree settings
 (custom-set-faces
- '(neo-root-dir-face ((t (:height 125))))
- '(neo-dir-link-face ((t (:height 125))))
- '(neo-file-link-face ((t (:height 125 :foreground "silver")))))
+ '(neo-root-dir-face ((t (:height 105))))
+ '(neo-dir-link-face ((t (:height 105))))
+ '(neo-file-link-face ((t (:height 105 :foreground "silver")))))
 
 (setq neo-theme (if (display-graphic-p) 'nerd 'arrow))
 (setq neo-window-fixed-size nil)
