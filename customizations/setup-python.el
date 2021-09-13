@@ -23,7 +23,8 @@
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
   (pipenv-mode +1)
-  (company-mode +1))
+  (company-mode +1)
+  (blacken-mode +1))
 
 (add-hook 'python-mode-hook #'setup-python-mode)
 
