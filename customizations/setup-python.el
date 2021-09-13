@@ -6,6 +6,11 @@
 
 ;;; Code:
 
+(setq elpy-rpc-python-command "python3")
+
+(setq python-shell-interpreter "python3"
+      python-shell-interpreter-args "-i")
+
 (elpy-enable)
 
 (when (load "flycheck" t t)
