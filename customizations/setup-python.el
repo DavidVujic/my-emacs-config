@@ -22,11 +22,10 @@
   (require 'pyenv-mode-auto)
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
-  (jedi-mode)
   (pipenv-mode +1)
   (company-mode +1))
 
-(add-hook 'python-mode-hook 'setup-python-mode)
+(add-hook 'python-mode-hook #'setup-python-mode)
 
 
 (provide 'setup-python)
