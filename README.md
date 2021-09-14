@@ -109,6 +109,9 @@ Run a JavaScript interpreter in an inferior process window.
 ### json-mode
 Major mode for editing JSON files. Extends the builtin js-mode to add better syntax highlighting for JSON and some nice editing keybindings.
 
+### live-py-mode
+Visualize your Python code while you type it in Emacs. Activate it with M-x `live-py-mode`.
+
 ### magit
 Magit is an interface to the version control system Git, implemented as an Emacs package.
 
