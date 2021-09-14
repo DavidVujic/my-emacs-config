@@ -27,6 +27,18 @@ This repo was originally forked from the [emacs for clojure repo](https://github
 
 ... and more. Have a look at the files in the [customizations](./customizations/) folder.
 
+### Python
+To enable flake8, mypy and black as soon as opening a Python file you will need to have those installed on your machine.
+
+``` shell
+ pip3 install flake8 mypy black
+```
+
+Alternatively, you can manually enable these tools after have activated a virtual environment (containing the tools) within Emacs.
+
+### Clojure
+Make sure you have `clj-kondo` installed on your machine according to the [install instructions](https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md)
+
 ## Packages
 
 ### add-node-modules-path
@@ -80,7 +92,7 @@ Allows environment variables to be retrieved from the shell, so that Emacs will 
 On-the-fly syntax checking for GNU Emacs 24.
 
 ### flycheck-clj-kondo
-This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed on your machine (`npm install -g clj-kondo`).
+This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed globally on your machine according to the official install instructions.
 
 ### graphql-mode
 graphql-mode is an emacs mode to edit GraphQL schema and queries.
