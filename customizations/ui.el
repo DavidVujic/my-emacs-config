@@ -44,8 +44,7 @@
     ((member "DejaVu Sans Mono" (font-family-list))
       (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
 
-;; Start Emacs maximized
-(toggle-frame-maximized)
+;; Start in fullscreen mode
 (toggle-frame-fullscreen)
 
 ;; These settings relate to how emacs interacts with your operating system
@@ -98,6 +97,7 @@
 
 (setq neo-theme (if (display-graphic-p) 'nerd 'arrow))
 (setq neo-window-fixed-size nil)
+
 
 (provide 'ui)
 
