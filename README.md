@@ -36,6 +36,16 @@ To enable flake8, mypy and black as soon as opening a Python file you will need 
 
 Alternatively, you can manually enable these tools after have activated a virtual environment (containing the tools) within Emacs.
 
+#### Python shell
+The shell is set to `IPython` and Emacs will expect to find it installed on your machine.
+
+``` shell
+pip3 install ipython
+```
+
+Or, change the shell setting in `customizations/setup-python.el`, according to the [elpy docs about interpreter setup](https://elpy.readthedocs.io/en/latest/ide.html#interpreter-setup).
+
+
 ### Clojure
 Make sure you have `clj-kondo` installed on your machine according to the [install instructions](https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md)
 
