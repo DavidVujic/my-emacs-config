@@ -45,6 +45,22 @@ pip3 install ipython
 
 Or, change the shell setting in `customizations/setup-python.el`, according to the [elpy docs about interpreter setup](https://elpy.readthedocs.io/en/latest/ide.html#interpreter-setup).
 
+#### Evaluating Python code, similar to when working in Clojure?
+I am evaluating (pun intended) ways to write code and evaluate the result interactively, just like when writing Clojure and using the Interactive REPL.
+
+My current setup:
+* IPython as the shell.
+* Evaluating code (a buffer, region or selection) with [elpy commands](https://elpy.readthedocs.io/en/latest/ide.html#evaluating-code-fragments).
+* A custom IPython config to auto-reload imported modules when the code in a module is changed.
+
+About [IPython config files](https://ipython.readthedocs.io/en/stable/config/intro.html#python-configuration-files)
+
+My custom `IPython` config (uncommented these rows, with values as below) that will enable auto-reload of modules.
+
+``` python
+c.InteractiveShellApp.extensions = ['autoreload']
+c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+```
 
 ### Clojure
 Make sure you have `clj-kondo` installed on your machine according to the [install instructions](https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md)
