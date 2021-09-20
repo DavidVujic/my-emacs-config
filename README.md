@@ -45,17 +45,17 @@ pip3 install ipython
 
 Or, change the shell setting in `customizations/setup-python.el`, according to the [elpy docs about interpreter setup](https://elpy.readthedocs.io/en/latest/ide.html#interpreter-setup).
 
-#### Evaluating Python code, similar to when working in Clojure?
-I am evaluating (pun intended) ways to write code and evaluate the result interactively, just like when writing Clojure and using the Interactive REPL.
+#### Evaluating Python code, like with Clojure?
+I am evaluating (pun) ways to write code in a Clojure-like interactive way.
 
 My current setup:
 * IPython as the shell.
-* Evaluating code (a buffer, region or selection) with [elpy commands](https://elpy.readthedocs.io/en/latest/ide.html#evaluating-code-fragments).
-* A custom IPython config to auto-reload imported modules when the code in a module is changed.
+* Evaluating code (entire buffer, region or selection) with [elpy commands](https://elpy.readthedocs.io/en/latest/ide.html#evaluating-code-fragments).
+* A custom IPython config to auto-reload changed.
 
-About [IPython config files](https://ipython.readthedocs.io/en/stable/config/intro.html#python-configuration-files)
+How to create and edit [IPython config files](https://ipython.readthedocs.io/en/stable/config/intro.html#python-configuration-files)
 
-My custom `IPython` config (uncommented these rows, with values as below) that will enable auto-reload of modules.
+My custom `IPython` config (added/uncommented these rows and added values). This will enable auto-reload of modules in the shell.
 
 ``` python
 c.InteractiveShellApp.extensions = ['autoreload']
