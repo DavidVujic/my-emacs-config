@@ -11,6 +11,8 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
+(setq elpy-shell-echo-input nil)
+
 (elpy-enable)
 
 (when (load "flycheck" t t)
