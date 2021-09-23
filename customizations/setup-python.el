@@ -12,6 +12,7 @@
       python-shell-interpreter-args "-i --simple-prompt")
 
 (setq elpy-shell-echo-input nil)
+(setenv "WORKON_HOME" "~/.pyenv/versions")
 
 (elpy-enable)
 
@@ -25,6 +26,7 @@
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
   (pipenv-mode +1)
+  (pyenv-mode +1)
   (company-mode +1)
   (blacken-mode +1))
 
