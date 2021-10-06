@@ -62,6 +62,7 @@
     pandoc-mode
     paredit
     pipenv
+    polymode
     projectile
     pyenv-mode-auto
     rainbow-delimiters
