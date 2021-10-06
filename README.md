@@ -162,6 +162,11 @@ Minor mode for editing parentheses.
 ### pipenv
 A Pipenv porcelain inside Emacs.
 
+### polymode
+A framework for multiple major modes (MMM) inside a single Emacs buffer.
+
+I use this mode to get syntax highlighting for inline SQL in Python files. Activate the mode with M-x poly-python-sql-mode.
+
 ### projectile
 Manage and navigate projects in Emacs easily
 
