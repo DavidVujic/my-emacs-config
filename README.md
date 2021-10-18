@@ -126,6 +126,10 @@ graphql-mode is an emacs mode to edit GraphQL schema and queries.
 ### ido-completing-read+
 If you use the excellent `ido-mode' for efficient completion of file names and buffers, you might wonder if you can get ido-style completion everywhere else too.
 
+### py-isort
+Provides commands, which use the external isort tool to tidy up the imports in the current buffer.
+Note: Install isort on your machine `pip install isort`.
+
 ### js2-mode
 Improved JavaScript editing mode.
 
