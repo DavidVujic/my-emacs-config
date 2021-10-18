@@ -37,6 +37,7 @@
 (defun setup-python-mode ()
   "Python mode setup."
   (require 'pyenv-mode-auto)
+  (require 'py-isort)
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
   (pipenv-mode +1)

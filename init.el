@@ -50,6 +50,7 @@
     flycheck-clj-kondo
     graphql-mode
     ido-completing-read+
+    py-isort
     js2-mode
     js-comint
     json-mode
