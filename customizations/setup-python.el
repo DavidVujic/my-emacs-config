@@ -39,6 +39,8 @@
   (require 'pyenv-mode-auto)
   (require 'py-isort)
   (setq gud-pdb-command-name "python -m pdb")
+  (setq elpy-test-runner 'elpy-test-pytest-runner)
+  (setq elpy-formatter 'black)
   (add-to-list 'company-backends 'company-jedi)
   (pipenv-mode +1)
   (pyenv-mode +1)
