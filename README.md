@@ -154,9 +154,6 @@ Allows you to move the current line using M-up / M-down if a region is marked, i
 ### multiple-cursors
 Multiple cursors for Emacs. This is some pretty crazy functionality, so yes, there are kinks. Don't be afraid though, I've been using it since 2011 with great success and much merriment.
 
-### neotree
-A emacs tree plugin like NerdTree for Vim.
-
 ### pandoc-mode
 Minor mode for interacting with Pandoc.
 
@@ -193,6 +190,9 @@ A collection of paredit-like functions for editing in html-mode.
 
 ### tide
 TypeScript interactive development environment for Emacs.
+
+### treemacs
+A tree layout file explorer for Emacs.
 
 ### web-mode
 Major mode for editing web templates.
