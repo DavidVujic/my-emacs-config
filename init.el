@@ -59,7 +59,6 @@
     markdown-mode
     move-text
     multiple-cursors
-    neotree
     pandoc-mode
     paredit
     pipenv
@@ -71,6 +70,7 @@
     super-save
     tagedit
     tide
+    treemacs
     web-mode
     which-key
     yaml-mode))

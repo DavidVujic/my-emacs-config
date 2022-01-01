@@ -89,15 +89,15 @@
 ;; Prevent re-centering when going up and down buffer with arrow keys
 (setq scroll-conservatively 101)
 
-;; neotree settings
-(custom-set-faces
- '(neo-root-dir-face ((t (:height 105))))
- '(neo-dir-link-face ((t (:height 105))))
- '(neo-file-link-face ((t (:height 105 :foreground "silver")))))
+(require 'treemacs)
 
-(setq neo-theme (if (display-graphic-p) 'nerd 'arrow))
-(setq neo-window-fixed-size nil)
-
+(add-hook 'treemacs-mode-hook
+          (lambda ()
+            (treemacs-resize-icons 15) ;; smaller icons than default
+            (text-scale-adjust -2) ;; smaller font size than default
+            (treemacs-toggle-fixed-width) ;; able to resize buffer width
+            (treemacs-decrease-width 5)
+            ))
 
 (provide 'ui)
 
