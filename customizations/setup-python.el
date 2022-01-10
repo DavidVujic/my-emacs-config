@@ -45,7 +45,7 @@
   (pipenv-mode +1)
   (pyenv-mode +1)
   (company-mode +1)
-  (blacken-mode +1))
+)
 
 (add-hook 'python-mode-hook #'setup-python-mode)
 
