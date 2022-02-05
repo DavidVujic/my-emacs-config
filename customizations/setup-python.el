@@ -38,6 +38,7 @@
   "Python mode setup."
   (require 'pyenv-mode-auto)
   (require 'py-isort)
+  (require 'poetry)
   (setq gud-pdb-command-name "python -m pdb")
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)

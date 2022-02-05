@@ -62,6 +62,7 @@
     pandoc-mode
     paredit
     pipenv
+    poetry
     polymode
     projectile
     pyenv-mode-auto

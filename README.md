@@ -163,6 +163,9 @@ Minor mode for editing parentheses.
 ### pipenv
 A Pipenv porcelain inside Emacs.
 
+### poetry
+Adding Python Poetry support in Emacs.
+
 ### polymode
 A framework for multiple major modes (MMM) inside a single Emacs buffer.
 
