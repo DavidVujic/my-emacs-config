@@ -36,13 +36,14 @@
 
 (defun setup-python-mode ()
   "Python mode setup."
-  (require 'pyenv-mode-auto)
+  (require 'auto-virtualenv)
   (require 'py-isort)
   (require 'poetry)
   (setq gud-pdb-command-name "python -m pdb")
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)
   (add-to-list 'company-backends 'company-jedi)
+  (auto-virtualenv-set-virtualenv)
   (pipenv-mode +1)
   (pyenv-mode +1)
   (company-mode +1)

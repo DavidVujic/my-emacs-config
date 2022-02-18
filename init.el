@@ -31,6 +31,7 @@
 
 (defvar my-packages
   '(add-node-modules-path
+    auto-virtualenv
     blacken
     cider
     clj-refactor
@@ -65,7 +66,6 @@
     poetry
     polymode
     projectile
-    pyenv-mode-auto
     rainbow-delimiters
     smex
     super-save
