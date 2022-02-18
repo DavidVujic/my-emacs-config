@@ -70,6 +70,9 @@ Make sure you have `clj-kondo` installed on your machine according to the [insta
 ### add-node-modules-path
 Searches the current files parent directories for the `node_modules/.bin/' directory and adds it to the buffer local `exec-path'. This allows Emacs to find project based installs of e.g. eslint.
 
+### auto-virtualenv
+Automatically activate python virtualenvs.
+
 ### blacken
 Blacken uses black to format a Python buffer.  It can be called explicitly on a certain buffer, but more conveniently, a minor-mode 'blacken-mode' is provided that turns on automatically running black on a buffer before saving.
 
@@ -173,10 +176,6 @@ I use this mode to get syntax highlighting for inline SQL in Python files. Activ
 
 ### projectile
 Manage and navigate projects in Emacs easily
-
-### pyenv-mode-auto
-Automatically activate pyenv version from Emacs with pyenv-mode.
-Activates the selected python version by traversing directories to find a .python-version file.
 
 ### rainbow-delimiters
 Rainbow-delimiters is a "rainbow parentheses"-like mode which highlights parentheses, brackets, and braces according to their depth. Each successive level is highlighted in a different color. This makes it easy to spot matching delimiters, orient yourself in the code, and tell which statements are at a given level.
