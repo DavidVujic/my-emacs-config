@@ -62,10 +62,9 @@
     multiple-cursors
     pandoc-mode
     paredit
-    pipenv
-    poetry
     polymode
     projectile
+    pyenv-mode
     rainbow-delimiters
     smex
     super-save

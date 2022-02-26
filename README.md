@@ -166,9 +166,6 @@ Minor mode for editing parentheses.
 ### pipenv
 A Pipenv porcelain inside Emacs.
 
-### poetry
-Adding Python Poetry support in Emacs.
-
 ### polymode
 A framework for multiple major modes (MMM) inside a single Emacs buffer.
 
@@ -176,6 +173,10 @@ I use this mode to get syntax highlighting for inline SQL in Python files. Activ
 
 ### projectile
 Manage and navigate projects in Emacs easily
+
+### pyenv-mode
+Add support for pyenv.
+
 
 ### rainbow-delimiters
 Rainbow-delimiters is a "rainbow parentheses"-like mode which highlights parentheses, brackets, and braces according to their depth. Each successive level is highlighted in a different color. This makes it easy to spot matching delimiters, orient yourself in the code, and tell which statements are at a given level.
