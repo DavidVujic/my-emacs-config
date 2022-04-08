@@ -15,6 +15,8 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
+(setq python-shell-completion-native-enable nil)
+
 (setq elpy-shell-echo-input nil)
 (setenv "WORKON_HOME" "~/.pyenv/versions")
 
