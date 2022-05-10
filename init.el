@@ -69,6 +69,7 @@
     smex
     super-save
     tagedit
+    terraform-mode
     tide
     treemacs
     web-mode

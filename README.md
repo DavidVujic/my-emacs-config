@@ -177,7 +177,6 @@ Manage and navigate projects in Emacs easily
 ### pyenv-mode
 Add support for pyenv.
 
-
 ### rainbow-delimiters
 Rainbow-delimiters is a "rainbow parentheses"-like mode which highlights parentheses, brackets, and braces according to their depth. Each successive level is highlighted in a different color. This makes it easy to spot matching delimiters, orient yourself in the code, and tell which statements are at a given level.
 
@@ -190,6 +189,9 @@ You can think of it as both something that augments and replaces the standard au
 
 ### tagedit
 A collection of paredit-like functions for editing in html-mode.
+
+### terraform-mode
+Major mode for terraform configuration files.
 
 ### tide
 TypeScript interactive development environment for Emacs.
