@@ -10,7 +10,7 @@
 (require 'py-isort)
 (require 'auto-virtualenv)
 
-(setq elpy-rpc-python-command "python3")
+;; (setq elpy-rpc-python-command "python3")
 
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
