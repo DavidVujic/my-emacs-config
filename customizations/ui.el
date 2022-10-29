@@ -45,7 +45,7 @@
       (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
 
 ;; Start in fullscreen mode
-(toggle-frame-fullscreen)
+;; (toggle-frame-fullscreen)
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
