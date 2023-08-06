@@ -82,16 +82,16 @@
 
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
+(load "misc.el")
+(load "ui.el")
 (load "shell-integration.el")
 (load "navigation.el")
-(load "ui.el")
-(load "misc.el")
 (load "editing.el")
 (load "elisp-editing.el")
 (load "setup-clojure.el")
+(load "setup-python.el")
 (load "setup-html.el")
 (load "setup-js.el")
-(load "setup-python.el")
 (load "setup-markdown.el")
 (load "setup-yaml.el")
 (load "setup-docker.el")
@@ -102,9 +102,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(package-selected-packages (quote (spinner sesman queue parseedn))))
+ '(custom-safe-themes
+   '("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default))
+ '(package-selected-packages '(spinner sesman queue parseedn)))
 
 
 (provide 'init)
 
 ;;; init.el ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
