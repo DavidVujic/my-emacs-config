@@ -1,23 +1,21 @@
 ;;; ui.el --- UI
 
 ;;; Commentary:
-;; These customizations change the way Emacs looks and disable/enable some user interface elements.
-;; Some useful customizations are commented out, and begin with the line "CUSTOMIZE".
-;; These are more a matter of preference and may require some fiddling to match your preferences.
+;; UI customizations
 
 ;;; Code:
+(require 'treemacs)
 
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 
 ;; Show line numbers
-(global-linum-mode)
+(global-display-line-numbers-mode 1)
 
 ;; Show column number in the mode line
 (column-number-mode 1)
 
-;; You can uncomment this to remove the graphical toolbar at the top. After
-;; awhile, you won't need the toolbar.
+;; Removes the graphical toolbar at the top.
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
@@ -25,27 +23,24 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; Set default background color, to avoid a bright screen shock before loading a Dark Theme is triggered
-(set-background-color "#000000")
-
-;; Load theme
-(add-hook 'after-init-hook (lambda () (load-theme 'sanityinc-tomorrow-bright)))
-
-;; Set fonts with fallback, and different sizes depending on system
+;; Set fonts with fallback, and different sizes depending on system.
 (if (eq system-type 'darwin)
-  (cond
-    ((member "Fira Mono" (font-family-list))
+    (cond
+     ((member "Fira Mono" (font-family-list))
       (set-face-attribute 'default nil :height 168 :font "Fira Mono"))
-    ((member "Menlo" (font-family-list))
+     ((member "Menlo" (font-family-list))
       (set-face-attribute 'default nil :height 168 :font "Menlo")))
-   (cond
-    ((member "Roboto Mono" (font-family-list))
-      (set-face-attribute 'default nil :height 128 :font "Roboto Mono"))
-    ((member "DejaVu Sans Mono" (font-family-list))
-      (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
+  (cond
+   ((member "Roboto Mono" (font-family-list))
+    (set-face-attribute 'default nil :height 128 :font "Roboto Mono"))
+   ((member "DejaVu Sans Mono" (font-family-list))
+    (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
 
-;; Start in fullscreen mode
-;; (toggle-frame-fullscreen)
+(defun setup-theme ()
+  "Editor theme."
+  (load-theme 'sanityinc-tomorrow-bright)
+  (set-face-background 'line-number "#000000")
+)
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
@@ -60,10 +55,6 @@
       ;; this selection is gone unless this variable is non-nil
       save-interprogram-paste-before-kill t
 
-      ;; Shows all options when running apropos. For more info,
-      ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
-      apropos-do-all t
-
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
 
@@ -74,7 +65,7 @@
 (setq-default frame-title-format "%b (%f)")
 
 ;; don't pop up font menu
-(global-set-key (kbd "s-t") '(lambda () (interactive)))
+(global-set-key (kbd "s-t") #'(lambda () (interactive)))
 
 ;; no bell
 (setq ring-bell-function 'ignore)
@@ -89,15 +80,16 @@
 ;; Prevent re-centering when going up and down buffer with arrow keys
 (setq scroll-conservatively 101)
 
-(require 'treemacs)
-
 (add-hook 'treemacs-mode-hook
           (lambda ()
             (treemacs-resize-icons 15) ;; smaller icons than default
             (text-scale-adjust -2) ;; smaller font size than default
             (treemacs-toggle-fixed-width) ;; able to resize buffer width
             (treemacs-decrease-width 5)
+            (display-line-numbers-mode -1)
             ))
+
+(add-hook 'after-init-hook #'setup-theme)
 
 (provide 'ui)
 

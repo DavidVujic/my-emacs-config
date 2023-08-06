@@ -3,6 +3,9 @@
 ;; Clojure and Cider customizations
 
 ;;; Code:
+(require 'clojure-mode-extra-font-locking)
+(require 'flycheck-clj-kondo)
+(require 'clj-refactor)
 
 ;;;;
 ;; Clojure
@@ -16,14 +19,10 @@
 ;; Java classes (e.g. JavaClassName)
 (add-hook 'clojure-mode-hook 'subword-mode)
 
-;; A little more syntax highlighting
 
-(require 'clojure-mode-extra-font-locking)
-
-;; syntax hilighting for midje
+;; syntax highlighting for midje
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (setq inferior-lisp-program "lein repl")
             (font-lock-add-keywords
              nil
              '(("(\\(facts?\\)"
@@ -79,11 +78,6 @@
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
 
-;; clojure linter
-(require 'flycheck-clj-kondo)
-
-;; clojure refactor support
-(require 'clj-refactor)
 
 (defun my-clojure-mode-hook ()
   "Clojure refactor support."
