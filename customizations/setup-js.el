@@ -9,17 +9,21 @@
 ;; add local node modules to path
 (add-hook 'flycheck-mode-hook 'add-node-modules-path)
 
-(add-to-list 'auto-mode-alist '("\\.[c|m]?[j|t]s\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.[c|m]?js\\'" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 
 
 (defun setup-tide-mode ()
   "Tide mode setup according to the official guide."
   (interactive)
   (tide-setup)
+  (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
+  (company-mode +1)
 )
 
 (defun inferior-js-mode-hook-setup ()
