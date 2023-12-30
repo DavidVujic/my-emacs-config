@@ -47,6 +47,7 @@
     exec-path-from-shell
     flycheck
     flycheck-clj-kondo
+    gptel
     graphql-mode
     ido-completing-read+
     py-isort
@@ -95,6 +96,7 @@
 (load "setup-markdown.el")
 (load "setup-yaml.el")
 (load "setup-docker.el")
+(load "setup-llm.el")
 
 
 (provide 'init)
