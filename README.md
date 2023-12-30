@@ -123,6 +123,9 @@ On-the-fly syntax checking for GNU Emacs 24.
 ### flycheck-clj-kondo
 This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed globally on your machine according to the official install instructions.
 
+### gptel
+GPTel is a simple Large Language Model chat client for Emacs, with support for multiple models/backends.
+
 ### graphql-mode
 graphql-mode is an emacs mode to edit GraphQL schema and queries.
 
