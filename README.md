@@ -3,7 +3,6 @@ __This is a Clojure, Python, JavaScript and TypeScript friendly emacs config__
 
 This repo was originally forked from the [emacs for clojure repo](https://github.com/flyingmachine/emacs-for-clojure). 
 
-
 ## Customizations
 ### UI
 * Menu bar is turned off
