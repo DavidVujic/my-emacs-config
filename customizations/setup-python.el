@@ -5,9 +5,7 @@
 
 
 ;;; Code:
-(require 'elpy)
 (require 'py-isort)
-(require 'auto-virtualenv)
 
 ;; Polymode: syntax highlighting for inline SQL statements in Python
 (define-hostmode poly-python-hostmode :mode 'python-mode)
@@ -23,28 +21,44 @@
     :hostmode 'poly-python-hostmode
     :innermodes '(poly-sql-expr-python-innermode))
 
-(defun setup-python-mode ()
-  "Python mode setup."
+(defun setup-pyenv ()
+  "Pyenv."
+  (setenv "WORKON_HOME" "~/.pyenv/versions")
+  (pyenv-mode +1))
+
+(defun setup-python-shell ()
+  "Python shell."
   (setq python-shell-interpreter "ipython"
         python-shell-interpreter-args "-i --simple-prompt")
-  (setq python-shell-completion-native-enable nil)
+  (setq python-shell-completion-native-enable nil))
 
-  (setq elpy-shell-echo-input nil)
-  (setenv "WORKON_HOME" "~/.pyenv/versions")
+(use-package auto-virtualenv
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv))
 
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (setq gud-pdb-command-name "python -m pdb")
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable)
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)
-
+  (setq elpy-shell-echo-input nil)
+  (setq gud-pdb-command-name "python -m pdb")
+  :config
   (add-to-list 'company-backends 'company-jedi)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
 
-  (elpy-enable)
-  (pyenv-mode +1)
-  (auto-virtualenv-set-virtualenv)
-)
+(add-hook 'python-mode-hook #'setup-pyenv)
+(add-hook 'python-mode-hook #'setup-python-shell)
 
-(add-hook 'python-mode-hook #'setup-python-mode)
+(use-package sideline
+  :hook (flycheck-mode . sideline-mode)
+  :init
+  (setq sideline-backends-right '(sideline-flycheck)))
+
+(use-package sideline-flycheck
+  :hook (flycheck-mode . sideline-flycheck-setup))
 
 ;; Python shell buffer
 (setq display-buffer-alist

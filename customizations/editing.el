@@ -4,7 +4,6 @@
 
 ;;; Code:
 (require 'saveplace)
-(require 'flycheck)
 (require 'multiple-cursors)
 
 (setq-default indent-tabs-mode nil)
@@ -65,15 +64,18 @@
 
 (emojify-set-emoji-styles '(unicode))
 
-;; syntax checking
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;; auto complete
 (add-hook 'after-init-hook 'global-company-mode)
 
 (add-hook 'after-init-hook 'setup-editing)
 
 (add-hook 'after-init-hook #'global-emojify-mode)
+
+;; syntax checking
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :hook (add-node-modules-path))
 
 (provide 'editing)
 

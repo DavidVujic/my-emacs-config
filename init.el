@@ -66,6 +66,8 @@
     pyenv-mode
     prettier
     rainbow-delimiters
+    sideline
+    sideline-flycheck
     smex
     super-save
     tagedit
