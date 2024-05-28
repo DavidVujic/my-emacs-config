@@ -185,6 +185,12 @@ Add support for pyenv.
 ### rainbow-delimiters
 Rainbow-delimiters is a "rainbow parentheses"-like mode which highlights parentheses, brackets, and braces according to their depth. Each successive level is highlighted in a different color. This makes it easy to spot matching delimiters, orient yourself in the code, and tell which statements are at a given level.
 
+### sideline
+Show informations on the side. This library provides the frontend UI to display information either on the left/right side of the buffer window.
+
+### sideline-flycheck
+Show flycheck errors with sideline.
+
 ### smex
 M-x interface with Ido-style fuzzy matching.
 
