@@ -54,6 +54,7 @@
     js2-mode
     js-comint
     json-mode
+    just-mode
     live-py-mode
     magit
     markdown-mode
