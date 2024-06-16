@@ -4,7 +4,7 @@
 ;;; Commentary:
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
-;; "When several buffers visit identically-named files,
+;; When several buffers visit identically-named files,
 ;; Emacs must give the buffers distinct names.
 ;; The usual method for making buffer names unique adds ‘<2>’, ‘<3>’, etc to the end
 ;; of the buffer names (all but one of them).
@@ -15,27 +15,30 @@
 ;;; Code:
 (require 'uniquify)
 (require 'recentf)
-(require 'projectile)
 
-(setq uniquify-buffer-name-style 'forward)
+(use-package emacs
+  :init
+  (setq uniquify-buffer-name-style 'forward)
 
-;; Turn on recent file mode so that you can more easily switch to
-;; recently edited files when you first start emacs
-(setq recentf-save-file (concat user-emacs-directory ".recentf"))
-(recentf-mode 1)
-(setq recentf-max-menu-items 40)
+  ;; Turn on recent file mode so that you can more easily switch to
+  ;; recently edited files when you first start emacs
+  (setq recentf-save-file (concat user-emacs-directory ".recentf"))
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 40)
 
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+  :bind (
+         ;; Shows a list of buffers
+         ("C-x C-b" . 'ibuffer)))
 
-(defun setup-ido ()
-  "Setup ido mode."
+(use-package ido
   ;; ido-mode allows you to more easily navigate choices. For example,
   ;; when you want to switch buffers, ido presents you with a list
   ;; of buffers in the the mini-buffer. As you start to type a buffer's
   ;; name, ido will narrow down the list of buffers to match the text
   ;; you've typed in
   ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
+
+  :init
   (ido-mode t)
 
   ;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
@@ -55,28 +58,28 @@
   ;; This enables ido in all contexts where it could be useful, not just
   ;; for selecting buffer and file names
   (ido-ubiquitous-mode t)
-  (ido-everywhere t)
-)
+  (ido-everywhere t))
 
-(defun setup-navigation ()
-  "Setup navigation."
+(use-package dumb-jump
+  :init
+  (dumb-jump-mode)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+(use-package smex
+  :init
+  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
+  (smex-initialize)
+
   ;; Enhances M-x to allow easier execution of commands. Provides
   ;; a filterable list of possible commands in the minibuffer
   ;; http://www.emacswiki.org/emacs/Smex
-  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
-  (smex-initialize)
-  (global-set-key (kbd "M-x") 'smex)
+  :bind (("M-x" . 'smex)))
 
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(use-package projectile
+  :demand
+  :init
   (projectile-mode +1)
-
-  ;; jump to definition
-  (dumb-jump-mode)
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-)
-
-(add-hook 'after-init-hook #'setup-ido)
-(add-hook 'after-init-hook #'setup-navigation)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (provide 'navigation)
 

@@ -51,6 +51,7 @@
 
 (add-hook 'python-mode-hook #'setup-pyenv)
 (add-hook 'python-mode-hook #'setup-python-shell)
+(add-hook 'python-mode-hook #'hs-minor-mode)
 
 (use-package sideline
   :hook (flycheck-mode . sideline-mode)

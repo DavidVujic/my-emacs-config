@@ -4,20 +4,13 @@
 ;; Miscellaneous customizations
 
 ;;; Code:
-(require 'which-key)
-(require 'super-save)
+(use-package emacs
+  :init
+  ;; Set default background color, to avoid a bright screen shock before loading a Dark Theme is triggered
+  (set-background-color "#000000")
 
-;; Set default background color, to avoid a bright screen shock before loading a Dark Theme is triggered
-(set-background-color "#000000")
-
-;; Go straight to scratch buffer on startup
-(setq inhibit-startup-message t)
-
-(defun misc-setup ()
-  "Misc setup."
-  (which-key-mode)
-  (super-save-mode +1)
-  (setq super-save-remote-files nil)
+  ;; Go straight to scratch buffer on startup
+  (setq inhibit-startup-message t)
 
   ;; No need for ~ files when editing
   (setq create-lockfiles nil)
@@ -30,10 +23,19 @@
 
   ;; shell scripts
   (setq-default sh-basic-offset 2)
-  (setq-default sh-indentation 2)
-)
+  (setq-default sh-indentation 2))
 
-(add-hook 'after-init-hook #'misc-setup)
+(use-package super-save
+  :config
+  (super-save-mode +1)
+  (setq super-save-remote-files nil))
+
+(use-package which-key
+  :demand
+  :init
+  (setq which-key-idle-delay 0.5) ; Open after .5s instead of 1s
+  :config
+  (which-key-mode))
 
 (provide 'misc)
 
