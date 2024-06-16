@@ -4,18 +4,6 @@
 
 ;;; Code:
 (require 'saveplace)
-(require 'multiple-cursors)
-
-(setq-default indent-tabs-mode nil)
-(setq-default save-place t)
-(setq save-place-file (concat user-emacs-directory "places"))
-(setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                               "backups"))))
-(setq auto-save-default nil)
-(setq electric-indent-mode nil)
-
-;; enable special chars in the editor, like ~ and ^.
-(load-library "iso-transl")
 
 (defun toggle-comment-on-line-or-region ()
   "Comment or uncomment current line, or region if selected."
@@ -27,11 +15,11 @@
 (defun setup-editing ()
   "Setup editing."
   (setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
+        '(try-expand-dabbrev
+          try-expand-dabbrev-all-buffers
+          try-expand-dabbrev-from-kill
+          try-complete-lisp-symbol-partially
+          try-complete-lisp-symbol))
 
   (show-paren-mode 1)
 
@@ -43,39 +31,52 @@
   (set-default 'truncate-lines t)
   (editorconfig-mode 1)
   ;; Replace highlighted text when you type
-  (delete-selection-mode 1)
-)
+  (delete-selection-mode 1))
 
-(global-set-key (kbd "C-;") 'toggle-comment-on-line-or-region)
-(global-set-key (kbd "M-/") 'hippie-expand)
+(use-package multiple-cursors
+  :bind (("C-S-c C-S-c" . 'mc/edit-lines)
+         ("C->" . 'mc/mark-next-like-this)
+         ("C-<" . 'mc/mark-previous-like-this)
+         ("C-c C-<" . 'mc/mark-all-like-this)))
 
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
+(use-package emacs
+  :init
+  (setq-default indent-tabs-mode nil)
+  (setq-default save-place t)
+  (setq save-place-file (concat user-emacs-directory "places"))
+  (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
+                                                 "backups"))))
+  (setq auto-save-default nil)
+  (setq electric-indent-mode nil)
 
-(global-set-key [(control shift up)]  'move-text-up)
-(global-set-key [(control shift down)]  'move-text-down)
+  ;; enable special chars in the editor, like ~ and ^.
+  (load-library "iso-transl")
+  (emojify-set-emoji-styles '(unicode))
 
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  :bind (("C-;" . 'toggle-comment-on-line-or-region)
+         ("M-/" . 'hippie-expand)
 
-(emojify-set-emoji-styles '(unicode))
+         ("C-s" . 'isearch-forward-regexp)
+         ("C-r" . 'isearch-backward-regexp)
+         ("C-M-s" . 'isearch-forward)
+         ("C-M-r" . 'isearch-backward)
 
-;; auto complete
-(add-hook 'after-init-hook 'global-company-mode)
-
-(add-hook 'after-init-hook 'setup-editing)
-
-(add-hook 'after-init-hook #'global-emojify-mode)
+         ([(control shift up)] . 'move-text-up)
+         ([(control shift down)] . 'move-text-down)))
 
 ;; syntax checking
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode)
   :hook (add-node-modules-path))
+
+  ;; auto complete
+
+(add-hook 'after-init-hook 'global-company-mode)
+
+(add-hook 'after-init-hook 'setup-editing)
+
+(add-hook 'after-init-hook #'global-emojify-mode)
 
 (provide 'editing)
 
