@@ -154,7 +154,11 @@ Visualize your Python code while you type it in Emacs. Activate it with M-x `liv
 Magit is an interface to the version control system Git, implemented as an Emacs package.
 
 ### markdown-mode
-Major mode for Markdown-formatted text.
+Major mode for Markdown-formatted text, set to use the GitHub markdown format.
+
+Note: the configuration uses `pandoc` and it need to be installed on the machine when previewing or rendering to a different format.
+
+For Mac OS X: `brew install pandoc`.
 
 ### move-text
 Allows you to move the current line using M-up / M-down if a region is marked, it will move the region instead.

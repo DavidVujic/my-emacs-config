@@ -5,17 +5,11 @@
 
 ;;; Code:
 
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "pandoc -f gfm -t html5 -s"))
 
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-(setq markdown-command
-      "pandoc -f markdown -t html -s --mathjax --highlight-style=pygments")
       
 (provide 'setup-markdown)
 
