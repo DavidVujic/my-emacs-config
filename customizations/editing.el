@@ -70,8 +70,13 @@
   :init (global-flycheck-mode)
   :hook (add-node-modules-path))
 
-  ;; auto complete
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 1))
 
+;; auto complete
 (add-hook 'after-init-hook 'global-company-mode)
 
 (add-hook 'after-init-hook 'setup-editing)
