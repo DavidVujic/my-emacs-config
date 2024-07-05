@@ -32,6 +32,12 @@
         python-shell-interpreter-args "-i --simple-prompt")
   (setq python-shell-completion-native-enable nil))
 
+(defun format-buffer ()
+  "Format the Python buffer."
+  (interactive)
+  (py-isort-buffer)
+  (blacken-buffer))
+
 (use-package auto-virtualenv
   :ensure t
   :config
@@ -49,10 +55,6 @@
   (add-to-list 'company-backends 'company-jedi)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
 
-(add-hook 'python-mode-hook #'setup-pyenv)
-(add-hook 'python-mode-hook #'setup-python-shell)
-(add-hook 'python-mode-hook #'hs-minor-mode)
-
 (use-package sideline
   :hook (flycheck-mode . sideline-mode)
   :init
@@ -60,6 +62,13 @@
 
 (use-package sideline-flycheck
   :hook (flycheck-mode . sideline-flycheck-setup))
+
+(use-package python
+  :hook ((python-mode . setup-pyenv)
+         (python-mode . setup-python-shell)
+         (python-mode . hs-minor-mode))
+  :bind (:map python-mode-map
+              ("<f5>" . format-buffer)))
 
 ;; Python shell buffer
 (setq display-buffer-alist
