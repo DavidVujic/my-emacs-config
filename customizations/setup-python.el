@@ -38,13 +38,10 @@
   (py-isort-buffer)
   (blacken-buffer))
 
-(defvar auto-virtualenv-project-root-files
-  '(".dir-locals.el" ".projectile" ".emacs-project" "manage.py" ".git" ".hg")
-  "Workaround: override the default, that picks a venv outside of the project.")
-
 (use-package auto-virtualenv
   :ensure t
   :config
+  (setq auto-virtualenv-custom-virtualenv-path ".venv")
   (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv))
 
 (use-package elpy
