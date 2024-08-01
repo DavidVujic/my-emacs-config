@@ -49,13 +49,14 @@
 
 (use-package elpy
   :ensure t
+  :defer t
   :init
-  (elpy-enable)
+  (advice-add 'python-mode :before 'elpy-enable)
+  :config
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)
   (setq elpy-shell-echo-input nil)
   (setq gud-pdb-command-name "python -m pdb")
-  :config
   (add-to-list 'company-backends 'company-jedi)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
 
