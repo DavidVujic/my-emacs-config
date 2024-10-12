@@ -57,6 +57,10 @@
   (add-to-list 'company-backends 'company-jedi)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
 
+(use-package flymake-ruff
+  :ensure t
+  :hook (python-mode . flymake-ruff-load))
+
 (use-package sideline
   :hook (flycheck-mode . sideline-mode)
   :init

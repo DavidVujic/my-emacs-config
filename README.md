@@ -30,7 +30,7 @@ This repo was originally forked from the [emacs for clojure repo](https://github
 To enable flake8, mypy and black as soon as opening a Python file you will need to have those installed on your machine.
 
 ``` shell
- pip3 install flake8 flake8-bugbear mypy black
+ pip3 install flake8 flake8-bugbear mypy black ruff
 ```
 
 Alternatively, you can manually enable these tools after have activated a virtual environment (containing the tools) within Emacs.
@@ -121,6 +121,9 @@ On-the-fly syntax checking for GNU Emacs 24.
 
 ### flycheck-clj-kondo
 This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed globally on your machine according to the official install instructions.
+
+### flymake-ruff
+Flymake plugin to run a linter for python buffers using ruff.
 
 ### gptel
 GPTel is a simple Large Language Model chat client for Emacs, with support for multiple models/backends.
