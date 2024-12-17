@@ -41,8 +41,7 @@
 (use-package auto-virtualenv
   :ensure t
   :config
-  (setq auto-virtualenv-custom-virtualenv-path ".venv")
-  (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv))
+  (add-hook 'python-mode-hook 'auto-virtualenv-setup))
 
 (use-package elpy
   :ensure t
