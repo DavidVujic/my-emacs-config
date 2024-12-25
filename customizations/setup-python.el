@@ -38,10 +38,16 @@
   (py-isort-buffer)
   (blacken-buffer))
 
+(defun setup-virtual-environment ()
+  "Setup Python virtual environment."
+  (auto-virtualenv-setup)
+  (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root)))
+)
+
 (use-package auto-virtualenv
   :ensure t
   :config
-  (add-hook 'python-mode-hook 'auto-virtualenv-setup))
+  (add-hook 'python-mode-hook 'setup-virtual-environment))
 
 (use-package elpy
   :ensure t
