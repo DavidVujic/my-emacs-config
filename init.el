@@ -20,6 +20,7 @@
 (add-to-list 'package-pinned-packages '(yaml-mode . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(tide . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(auto-virtualenv . "melpa-stable") t)
 
 (package-initialize)
 
