@@ -14,12 +14,22 @@
 (use-package emacs
   :init
 
+  ;; Turn off the menu bar at the top of each frame because it's distracting
+  (menu-bar-mode -1)
+
   ;; Show line numbers
   (global-display-line-numbers-mode 1)
 
   ;; Show column number in the mode line
   (column-number-mode 1)
 
+  ;; Removes the graphical toolbar at the top.
+  (when (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+
+  ;; Don't show native OS scroll bars for buffers because they're redundant
+  (when (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
 
   ;; Set fonts with fallback, and different sizes depending on system.
   (if (eq system-type 'darwin)
