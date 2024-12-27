@@ -110,6 +110,13 @@ EditorConfig helps developers define and maintain consistent coding styles betwe
 ### elpy
 The Emacs Lisp Python Environment in Emacs.
 
+__NOTE__: the current version doesn't fully support Python 3.12 and later, because of the removal of `distutils`.
+But there's a workaround until fixed (existing pull requests solving this issue at the elpy GitHub):
+
+``` shell
+~/.emacs.d/elpy/rpc-venv/bin/pip install setuptools
+```
+
 ### emojify
 Display emojis in Emacs.
 
