@@ -41,13 +41,10 @@
 (defun setup-virtual-environment ()
   "Setup Python virtual environment."
   (auto-virtualenv-setup)
-  (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root)))
-)
+  (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
 
 (use-package auto-virtualenv
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook 'setup-virtual-environment))
+  :ensure t)
 
 (use-package elpy
   :ensure t
@@ -55,6 +52,7 @@
   :init
   (advice-add 'python-mode :before 'elpy-enable)
   :config
+  (setup-virtual-environment)
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)
   (setq elpy-shell-echo-input nil)
