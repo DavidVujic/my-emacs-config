@@ -43,6 +43,16 @@
   (auto-virtualenv-setup)
   (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
 
+(defun rdd-py/command-hook ()
+  "Run the REPL Driven Development overlay after the elpy command."
+  (when (eq this-command 'elpy-shell-send-region-or-buffer)
+    (let ((command this-command))
+      (run-at-time
+       "0.1 sec" nil
+       (lambda (_)
+         (rdd-py/output-overlay (rdd-py/get-latest-python-shell-output)))
+       command))))
+
 (use-package auto-virtualenv
   :ensure t)
 
@@ -58,7 +68,8 @@
   (setq elpy-shell-echo-input nil)
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'post-command-hook #'rdd-py/command-hook))
 
 (use-package flymake-ruff
   :ensure t
