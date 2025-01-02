@@ -71,13 +71,13 @@ INLINE-OUTPUT is included if present."
         (when (rdd-py/non-empty-and-not-in-regex line)
           (push line lines)))
       (forward-line))
-    (reverse lines))) ; Return lines in correct order
+    (reverse lines)))
 
 
 (defun rdd-py/calculate-output-end ()
   "Ensure output-end stops at the line containing the in-regex, if found."
   (or (when (re-search-forward rdd-py/python-in-regex nil t)
-        (line-beginning-position)) ; Stop at the start of the in-regex.
+        (line-beginning-position))
       (point-max)))
 
 (defun rdd-py/extract-shell-output (out-prompt)
