@@ -41,6 +41,7 @@
 (defun format-buffer-with-ruff ()
   "Format the Python buffer using `ruff`."
   (interactive)
+  (save-buffer)
   (shell-command (concat "ruff check " (buffer-file-name) " --fix"))
   (shell-command (concat "ruff format " (buffer-file-name)))
   (revert-buffer t t t))
