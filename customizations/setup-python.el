@@ -33,10 +33,17 @@
   (setq python-shell-completion-native-enable nil))
 
 (defun format-buffer ()
-  "Format the Python buffer."
+  "Format the Python buffer using isort and black."
   (interactive)
   (py-isort-buffer)
   (blacken-buffer))
+
+(defun format-buffer-with-ruff ()
+  "Format the Python buffer using `ruff`."
+  (interactive)
+  (shell-command (concat "ruff check " (buffer-file-name) " --fix"))
+  (shell-command (concat "ruff format " (buffer-file-name)))
+  (revert-buffer t t t))
 
 (defun setup-virtual-environment ()
   "Setup Python virtual environment."
@@ -88,7 +95,8 @@
          (python-mode . setup-python-shell)
          (python-mode . hs-minor-mode))
   :bind (:map python-mode-map
-              ("<f5>" . format-buffer)))
+              ("<f5>" . format-buffer)
+              ("<f6>" . format-buffer-with-ruff)))
 
 ;; Python shell buffer
 (setq display-buffer-alist
