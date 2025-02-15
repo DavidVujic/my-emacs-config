@@ -51,16 +51,6 @@
   (auto-virtualenv-setup)
   (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
 
-(defun rdd-py/command-hook ()
-  "Run the REPL Driven Development overlay after the elpy command."
-  (when (eq this-command 'elpy-shell-send-region-or-buffer)
-    (let ((command this-command))
-      (run-at-time
-       "0.1 sec" nil
-       (lambda (_)
-         (rdd-py/output-overlay (rdd-py/get-latest-python-shell-output)))
-       command))))
-
 (use-package auto-virtualenv
   :ensure t)
 
@@ -109,18 +99,6 @@
          )
         )
       )
-
-
-(defun jupyter-connect-to-existing-kernel ()
-  "Prompt for a Jupyter kernel file name and set up the Python shell.
-The kernel file name is passed directly to Jupyter, assuming it is in the default runtime directory."
-  (interactive)
-  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
-  (let ((kernel-file (read-string "Enter Jupyter kernel file name (e.g., kernel-12345.json): ")))
-    (setq python-shell-interpreter "jupyter"
-          python-shell-interpreter-args (format "console --simple-prompt --existing %s --profile default" kernel-file))
-    ;; Start the Python shell
-    (run-python (python-shell-calculate-command) t t)))
 
 (provide 'setup-python)
 
