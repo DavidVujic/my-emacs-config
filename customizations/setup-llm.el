@@ -10,7 +10,7 @@
 (defun setup-gptel ()
   "Setup gptel."
   (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
-  (setq gptel-model "gpt-4-1106-preview")
+  (setq gptel-model :gpt-4o)
   (setq gptel--system-message
         "You are a helpful assistant in Emacs.
        Respond concisely, to the top of your intelligence.
