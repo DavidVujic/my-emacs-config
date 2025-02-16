@@ -1,7 +1,7 @@
 ;;; setup-python-rdd-shell.el --- Python
 
 ;;; Commentary:
-;;  REPL Driven Development customizations for Overlay
+;;  Python REPL Driven Development customizations for Overlay
 
 
 ;;; Code:

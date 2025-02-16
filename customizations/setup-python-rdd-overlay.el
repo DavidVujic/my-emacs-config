@@ -1,7 +1,7 @@
 ;;; setup-python-rdd-overlay.el --- Python
 
 ;;; Commentary:
-;;  REPL Driven Development customizations for Overlay
+;;  Python REPL Driven Development customizations for Overlay
 
 
 ;;; Code:
