@@ -95,6 +95,7 @@
 (load "elisp-editing.el")
 (load "setup-python-rdd-shell.el")
 (load "setup-python-rdd-overlay.el")
+(load "setup-python-rdd-ipython.el")
 (load "setup-python-rdd-jupyter.el")
 (load "setup-python-rdd.el")
 (load "setup-python.el")
