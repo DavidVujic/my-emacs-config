@@ -95,12 +95,10 @@
 (load "elisp-editing.el")
 (load "setup-python-rdd-shell.el")
 (load "setup-python-rdd-overlay.el")
-<<<<<<< HEAD
-(load "setup-python-rdd-llm.el")
-=======
+(load "setup-python-rdd-ipython.el")
 (load "setup-python-rdd-jupyter.el")
+(load "setup-python-rdd-llm.el")
 (load "setup-python-rdd.el")
->>>>>>> 6761b63 (wip: rdd python)
 (load "setup-python.el")
 (load "setup-clojure.el")
 (load "setup-html.el")

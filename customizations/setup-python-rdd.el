@@ -16,10 +16,14 @@
          (rdd-py/output-overlay (rdd-py/get-latest-python-shell-output)))
        command))))
 
-
 (defun rdd-py/connect-to-existing-jupyter-kernel ()
   "Connect to an existing Jupyter kernel."
   (interactive)
   (rdd-py/connect-jupyter))
+
+(defun rdd-py/use-ipython()
+  "Setup the Python shell, using IPython."
+  (interactive)
+  (rdd-py/setup-ipython))
 
 ;;; setup-python-rdd.el ends here

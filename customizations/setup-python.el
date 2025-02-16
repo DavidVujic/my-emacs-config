@@ -26,12 +26,6 @@
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   (pyenv-mode +1))
 
-(defun setup-python-shell ()
-  "Python shell."
-  (setq python-shell-interpreter "ipython"
-        python-shell-interpreter-args "-i --simple-prompt")
-  (setq python-shell-completion-native-enable nil))
-
 (defun format-buffer ()
   "Format the Python buffer using isort and black."
   (interactive)
@@ -83,7 +77,7 @@
 
 (use-package python
   :hook ((python-mode . setup-pyenv)
-         (python-mode . setup-python-shell)
+         (python-mode . rdd-py/setup-ipython)
          (python-mode . hs-minor-mode))
   :bind (:map python-mode-map
               ("<f5>" . format-buffer)
