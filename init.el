@@ -95,6 +95,7 @@
 (load "elisp-editing.el")
 (load "setup-python-rdd-shell.el")
 (load "setup-python-rdd-overlay.el")
+(load "setup-python-rdd-llm.el")
 (load "setup-python.el")
 (load "setup-clojure.el")
 (load "setup-html.el")
