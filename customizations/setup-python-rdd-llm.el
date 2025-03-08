@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(defvar rdd-py/llm-instruction-generate-parameter-stubs
+(defvar rdd-py/llm-prompt-generate-function-parameter-stubs
   "Analyze the following Python function and identify its input parameters and their types.
 
   Then, generate example values for these parameters based on their names and types.
@@ -21,7 +21,7 @@
 
 
 (defun rdd-py/llm-insert-parameter-stubs (response _info)
-  (with-current-buffer "*Python*"
+  (with-current-buffer rdd-py/python-buffer-name
     (goto-char (point-max))
     (insert response)
     (comint-send-input)))
@@ -31,7 +31,7 @@
   "Ask the LLM to generate stubs (example values) for the input parameters."
   (interactive)
   (let* ((code (buffer-substring-no-properties (region-beginning) (region-end)))
-         (prompt (format "%s\n\n%s" rdd-py/llm-instruction-generate-parameter-stubs code)))
+         (prompt (format "%s\n\n%s" rdd-py/llm-prompt-generate-function-parameter-stubs code)))
     (gptel-request prompt
       :callback #'rdd-py/llm-insert-parameter-stubs)))
 
