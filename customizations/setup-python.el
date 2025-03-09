@@ -26,12 +26,6 @@
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   (pyenv-mode +1))
 
-(defun setup-python-shell ()
-  "Python shell."
-  (setq python-shell-interpreter "ipython"
-        python-shell-interpreter-args "-i --simple-prompt")
-  (setq python-shell-completion-native-enable nil))
-
 (defun format-buffer ()
   "Format the Python buffer using isort and black."
   (interactive)
@@ -50,16 +44,6 @@
   "Setup Python virtual environment."
   (auto-virtualenv-setup)
   (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
-
-(defun rdd-py/command-hook ()
-  "Run the REPL Driven Development overlay after the elpy command."
-  (when (eq this-command 'elpy-shell-send-region-or-buffer)
-    (let ((command this-command))
-      (run-at-time
-       "0.1 sec" nil
-       (lambda (_)
-         (rdd-py/output-overlay (rdd-py/get-latest-python-shell-output)))
-       command))))
 
 (use-package auto-virtualenv
   :ensure t)
@@ -93,7 +77,7 @@
 
 (use-package python
   :hook ((python-mode . setup-pyenv)
-         (python-mode . setup-python-shell)
+         (python-mode . rdd-py/setup-ipython)
          (python-mode . hs-minor-mode))
   :bind (:map python-mode-map
               ("<f5>" . format-buffer)
