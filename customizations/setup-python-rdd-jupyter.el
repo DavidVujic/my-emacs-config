@@ -6,6 +6,58 @@
 
 ;;; Code:
 
+
+(defun rdd-py/get-absolute-file-path ()
+  "Return the absolute path of the current buffer's file."
+  (let ((file (buffer-file-name)))
+    (expand-file-name file)))
+
+(defun rdd-py/extract-relevant-path (file-path top-namespace)
+  "Extract the relevant part of FILE-PATH starting from TOP-NAMESPACE.
+Returns nil if TOP-NAMESPACE is not found in FILE-PATH."
+  (let ((index (string-match (regexp-quote top-namespace) file-path)))
+    (when index
+      (substring file-path index))))
+
+(defun rdd-py/convert-path-to-python-namespace (path)
+  "Convert a file PATH into a valid Python namespace."
+  (let* ((namespace (file-name-sans-extension path))
+         (namespace (replace-regexp-in-string "^[/]+" "" namespace))
+         (namespace (replace-regexp-in-string "[^a-zA-Z0-9_/]" "_" namespace))
+         (namespace (replace-regexp-in-string "/" "." namespace)))
+    namespace))
+
+(defun rdd-py/selected-region ()
+  "Return the text of the currently selected region as-is.
+If no region is selected, return nil."
+  (when (use-region-p)
+    (buffer-substring-no-properties (region-beginning) (region-end))))
+
+
+(defun rdd-py/send-to-python-repl (code)
+  "Send the given Python CODE directly to the *Python* REPL."
+  (let ((python-buffer (get-buffer rdd-py/python-buffer-name)))
+    (with-current-buffer python-buffer
+      (goto-char (point-max))
+      (insert code)
+      (comint-send-input))))
+
+(defun rdd-py/python-namespace-from-buffer ()
+  "Generate a Python namespace from the current buffer's absolute file path.
+Then sends the generated namespace directly to an open *Python* REPL session."
+  (interactive)
+  (let* ((file-path (rdd-py/get-absolute-file-path))
+         (top-namespace "/example/")
+         (relative-path (rdd-py/extract-relevant-path file-path top-namespace))
+         (selected-text (rdd-py/selected-region)))
+    (let ((namespace (rdd-py/convert-path-to-python-namespace relative-path))
+          (eval-code ""))
+      (setq eval-code (if selected-text
+                          (concat namespace "." selected-text)
+                        namespace))
+      (rdd-py/send-to-python-repl eval-code))
+))
+
 (defun rdd-py/ask-for-kernel-file ()
   "Ask for a running Jupyter kernel."
   (read-string "Jupyter kernel name: "))
