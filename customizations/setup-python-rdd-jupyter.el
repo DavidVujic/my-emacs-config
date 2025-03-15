@@ -19,12 +19,12 @@
   (let ((file (buffer-file-name)))
     (expand-file-name file)))
 
-(defun rdd-py/extract-relevant-path (file-path top-namespace)
-  "Extract the relevant part of FILE-PATH starting from TOP-NAMESPACE.
-Returns nil if TOP-NAMESPACE is not found in FILE-PATH."
-  (let ((index (string-match (regexp-quote top-namespace) file-path)))
-    (when index
-      (substring file-path index))))
+(defun rdd-py/extract-relevant-path (base path)
+  "Extract the relative path from PATH by removing the BASE part."
+  (let ((regexp (concat "^" (regexp-quote base))))
+    (if (string-match regexp path)
+        (substring path (match-end 0))
+      path)))
 
 (defun rdd-py/convert-path-to-python-namespace (path)
   "Convert a file PATH into a valid Python namespace."
@@ -52,7 +52,7 @@ Returns nil if TOP-NAMESPACE is not found in FILE-PATH."
   "Generate a Python namespace from the current buffer's absolute file path."
   (let* ((file-path (rdd-py/get-absolute-file-path))
          (top-namespace (rdd-py/find-top-namespace))
-         (relative-path (rdd-py/extract-relevant-path file-path top-namespace))
+         (relative-path (rdd-py/extract-relevant-path top-namespace file-path))
          (selected-text (rdd-py/selected-region)))
     (let ((namespace (rdd-py/convert-path-to-python-namespace relative-path)))
       (if selected-text
