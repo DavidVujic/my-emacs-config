@@ -50,20 +50,20 @@ If no region is selected, return nil."
       (comint-send-input))))
 
 (defun rdd-py/python-namespace-from-buffer ()
-  "Generate a Python namespace from the current buffer's absolute file path.
-Then sends the generated namespace directly to an open *Python* REPL session."
-  (interactive)
+  "Generate a Python namespace from the current buffer's absolute file path."
   (let* ((file-path (rdd-py/get-absolute-file-path))
          (top-namespace (rdd-py/find-top-namespace))
          (relative-path (rdd-py/extract-relevant-path file-path top-namespace))
          (selected-text (rdd-py/selected-region)))
-    (let ((namespace (rdd-py/convert-path-to-python-namespace relative-path))
-          (eval-code ""))
-      (setq eval-code (if selected-text
-                          (concat namespace "." selected-text)
-                        namespace))
-      (rdd-py/send-to-python-repl eval-code))
-))
+    (let ((namespace (rdd-py/convert-path-to-python-namespace relative-path)))
+      (if selected-text
+          (concat namespace "." selected-text)
+        namespace))))
+
+(defun rdd-py/eval-python-with-full-namespace ()
+  "Evaluate selected region, with a calculated namespace, to an open *Python* REPL session."
+  (interactive)
+  (rdd-py/send-to-python-repl (rdd-py/python-namespace-from-buffer)))
 
 (defun rdd-py/ask-for-kernel-file ()
   "Ask for a running Jupyter kernel."
