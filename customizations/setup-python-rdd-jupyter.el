@@ -7,6 +7,13 @@
 ;;; Code:
 
 
+(defvar rdd-py/top-folder nil
+  "Top folder, i.e. top namespace, for Python code.")
+
+(defun rdd-py/find-top-namespace ()
+  "Find the top namespace of the current Python project."
+  (or rdd-py/top-folder (auto-virtualenv-locate-project-root)))
+
 (defun rdd-py/get-absolute-file-path ()
   "Return the absolute path of the current buffer's file."
   (let ((file (buffer-file-name)))
@@ -47,7 +54,7 @@ If no region is selected, return nil."
 Then sends the generated namespace directly to an open *Python* REPL session."
   (interactive)
   (let* ((file-path (rdd-py/get-absolute-file-path))
-         (top-namespace "/example/")
+         (top-namespace (rdd-py/find-top-namespace))
          (relative-path (rdd-py/extract-relevant-path file-path top-namespace))
          (selected-text (rdd-py/selected-region)))
     (let ((namespace (rdd-py/convert-path-to-python-namespace relative-path))
