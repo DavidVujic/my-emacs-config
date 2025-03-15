@@ -30,19 +30,14 @@
         (substring path (match-end 0))
       path)))
 
-(defun rdd-py/convert-path-to-python-namespace (path)
+(defun rdd-py/convert-path-to-python-ns-and-module (path)
   "Convert a file PATH into a valid Python namespace."
-  (let* ((namespace (file-name-sans-extension path))
-         (namespace (replace-regexp-in-string "^[/]+" "" namespace))
-         (namespace (replace-regexp-in-string "[^a-zA-Z0-9_/]" "_" namespace))
-         (namespace (replace-regexp-in-string "/" "." namespace)))
-    namespace))
-
-(defun rdd-py/selected-region ()
-  "Return the text of the currently selected region as-is."
-  (when (use-region-p)
-    (buffer-substring-no-properties (region-beginning) (region-end))))
-
+  (let* ((without-file-ext (file-name-sans-extension path))
+         (with-allowed-chars (replace-regexp-in-string "[^a-zA-Z0-9_/]" "_" without-file-ext))
+         (separated (remove "" (split-string with-allowed-chars "/")))
+         (namespace (mapconcat 'identity (butlast separated) "."))
+         (module (car (last separated))))
+    (list namespace module)))
 
 (defun rdd-py/send-to-python-repl (code)
   "Send the given Python CODE directly to the *Python* REPL."
@@ -52,21 +47,24 @@
       (insert code)
       (comint-send-input))))
 
-(defun rdd-py/python-namespace-from-buffer ()
+(defun rdd-py/python-ns-and-module-from-buffer ()
   "Generate a Python namespace from the current buffer's absolute file path."
   (let* ((file-path (rdd-py/get-absolute-file-path))
          (top-namespace (rdd-py/find-top-namespace))
-         (relative-path (rdd-py/extract-relevant-path top-namespace file-path))
-         (selected-text (rdd-py/selected-region)))
-    (let ((namespace (rdd-py/convert-path-to-python-namespace relative-path)))
-      (if selected-text
-          (concat namespace "." selected-text)
-        namespace))))
+         (relative-path (rdd-py/extract-relevant-path top-namespace file-path)))
+    (rdd-py/convert-path-to-python-ns-and-module relative-path)))
 
-(defun rdd-py/eval-python-with-full-namespace ()
-  "Evaluate selected region, with a calculated namespace, to an open *Python* REPL session."
+(defun rdd-py/import-python-ns-and-module (namespace module)
+  "Import the NAMESPACE and MODULE by sending Python code to the REPL."
+  (rdd-py/send-to-python-repl (concat "from " namespace "." module " import *")))
+
+(defun rdd-py/eval-python-namespace ()
+  "Evaluate a calculated namespace, based on the current buffer, to a REPL session."
   (interactive)
-  (rdd-py/send-to-python-repl (rdd-py/python-namespace-from-buffer)))
+  (let* ((ns-and-module (rdd-py/python-ns-and-module-from-buffer))
+         (namespace (car ns-and-module))
+         (module (cadr ns-and-module)))
+    (rdd-py/import-python-ns-and-module namespace module)))
 
 (defun rdd-py/ask-for-kernel-file ()
   "Ask for a running Jupyter kernel."
