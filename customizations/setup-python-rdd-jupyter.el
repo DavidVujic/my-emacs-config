@@ -8,11 +8,15 @@
 
 
 (defvar rdd-py/top-folder nil
-  "Top folder, i.e. top namespace, for Python code.")
+  "Top folder name, i.e. top namespace, for Python code.")
 
 (defun rdd-py/find-top-namespace ()
   "Find the top namespace of the current Python project."
-  (or rdd-py/top-folder (auto-virtualenv-locate-project-root)))
+  (let ((root (auto-virtualenv-locate-project-root))
+        (folder (or rdd-py/top-folder "")))
+    (if (string= folder "")
+        root
+        (concat root folder))))
 
 (defun rdd-py/get-absolute-file-path ()
   "Return the absolute path of the current buffer's file."
