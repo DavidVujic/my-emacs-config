@@ -35,8 +35,7 @@ Returns nil if TOP-NAMESPACE is not found in FILE-PATH."
     namespace))
 
 (defun rdd-py/selected-region ()
-  "Return the text of the currently selected region as-is.
-If no region is selected, return nil."
+  "Return the text of the currently selected region as-is."
   (when (use-region-p)
     (buffer-substring-no-properties (region-beginning) (region-end))))
 
