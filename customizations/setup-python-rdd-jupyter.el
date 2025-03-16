@@ -18,6 +18,12 @@
         root
         (concat root folder))))
 
+(defun rdd-py/selected-region ()
+  "Return the text of the currently selected region as-is."
+  (when (use-region-p)
+    (buffer-substring-no-properties (region-beginning) (region-end))))
+
+
 (defun rdd-py/get-absolute-file-path ()
   "Return the absolute path of the current buffer's file."
   (let ((file (buffer-file-name)))
@@ -30,14 +36,19 @@
         (substring path (match-end 0))
       path)))
 
-(defun rdd-py/convert-path-to-python-ns-and-module (path)
+(defun rdd-py/convert-path-to-python-namespace (path)
   "Convert a file PATH into a valid Python namespace."
   (let* ((without-file-ext (file-name-sans-extension path))
-         (with-allowed-chars (replace-regexp-in-string "[^a-zA-Z0-9_/]" "_" without-file-ext))
-         (separated (remove "" (split-string with-allowed-chars "/")))
-         (namespace (mapconcat 'identity (butlast separated) "."))
-         (module (car (last separated))))
-    (list namespace module)))
+        (with-allowed-chars (replace-regexp-in-string "-" "_" without-file-ext))
+        (separated (remove "" (split-string with-allowed-chars "/"))))
+    (mapconcat 'identity separated ".")))
+
+(defun rdd-py/python-namespace-from-buffer ()
+  "Generate a Python namespace from the current buffer's absolute file path."
+  (let* ((file-path (rdd-py/get-absolute-file-path))
+         (top-namespace (rdd-py/find-top-namespace))
+         (relative-path (rdd-py/extract-relevant-path top-namespace file-path)))
+    (rdd-py/convert-path-to-python-namespace relative-path)))
 
 (defun rdd-py/send-to-python-repl (code)
   "Send the given Python CODE directly to the *Python* REPL."
@@ -47,24 +58,18 @@
       (insert code)
       (comint-send-input))))
 
-(defun rdd-py/python-ns-and-module-from-buffer ()
-  "Generate a Python namespace from the current buffer's absolute file path."
-  (let* ((file-path (rdd-py/get-absolute-file-path))
-         (top-namespace (rdd-py/find-top-namespace))
-         (relative-path (rdd-py/extract-relevant-path top-namespace file-path)))
-    (rdd-py/convert-path-to-python-ns-and-module relative-path)))
-
-(defun rdd-py/import-python-ns-and-module (namespace module)
-  "Import the NAMESPACE and MODULE by sending Python code to the REPL."
-  (rdd-py/send-to-python-repl (concat "from " namespace "." module " import *")))
+(defun rdd-py/import-python-namespace (namespace)
+  "Import the NAMESPACE by sending Python code to the REPL."
+  (let ((top-namespace (car (split-string namespace "\\.")))
+        (selected-text (rdd-py/selected-region)))
+    (rdd-py/send-to-python-repl (concat "import " top-namespace))
+  (rdd-py/send-to-python-repl (concat "from " namespace " import " selected-text))))
 
 (defun rdd-py/eval-python-namespace ()
   "Evaluate a calculated namespace, based on the current buffer, to a REPL session."
   (interactive)
-  (let* ((ns-and-module (rdd-py/python-ns-and-module-from-buffer))
-         (namespace (car ns-and-module))
-         (module (cadr ns-and-module)))
-    (rdd-py/import-python-ns-and-module namespace module)))
+  (let* ((namespace (rdd-py/python-namespace-from-buffer)))
+    (rdd-py/import-python-namespace namespace)))
 
 (defun rdd-py/ask-for-kernel-file ()
   "Ask for a running Jupyter kernel."
