@@ -6,13 +6,13 @@
 
 ;;; Code:
 
-(defvar rdd-py/top-folder nil
+(defvar rdd-py/src-folder nil
   "Top folder name, i.e. top namespace, for Python code.")
 
 (defun rdd-py/find-top-namespace ()
   "Find the top namespace of the current Python project."
   (let ((root (auto-virtualenv-locate-project-root))
-        (folder (or rdd-py/top-folder "")))
+        (folder (or rdd-py/src-folder "")))
     (if (string= folder "")
         root
         (concat root folder))))
