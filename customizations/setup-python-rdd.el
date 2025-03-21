@@ -6,7 +6,12 @@
 
 ;;; Code:
 
-(defun rdd-py/command-hook ()
+(defun rdd-py/pre-command-hook ()
+  "When running with Jupyter: evaluate the current Python namespace."
+  (when (string= python-shell-interpreter "jupyter")
+    (rdd-py/eval-python-namespace)))
+
+(defun rdd-py/post-command-hook ()
   "Run the REPL Driven Development overlay after the elpy command."
   (when (eq this-command 'elpy-shell-send-region-or-buffer)
     (let ((command this-command))
