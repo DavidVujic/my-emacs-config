@@ -8,8 +8,10 @@
 
 (defun rdd-py/jupyter-shell? ()
   "Return t if the current Python shell is a Jupyter shell, otherwise nil."
-  (let ((cmd (car (process-command (get-buffer-process rdd-py/python-buffer-name)))))
-    (and cmd (if (string-match "jupyter" cmd) t nil))))
+  (let ((current-python-repl (get-buffer-process rdd-py/python-buffer-name)))
+    (when current-python-repl
+      (let ((cmd (car (process-command current-python-repl))))
+        (and cmd (if (string-match "jupyter" cmd) t nil))))))
 
 
 (defun rdd-py/pre-command-hook ()
