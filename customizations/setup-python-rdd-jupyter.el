@@ -9,19 +9,19 @@
 (defvar rdd-py/src-folder nil
   "Top folder name, i.e. top namespace, for Python code.")
 
-(defun rdd-py/find-top-namespace ()
-  "Find the top namespace of the current Python project."
-  (let ((root (auto-virtualenv-locate-project-root))
-        (folder (or rdd-py/src-folder "")))
-    (if (string= folder "")
-        root
-        (concat root folder))))
+(defun rdd-py/possible-src-folders ()
+  "A list of possible Python src top folders."
+  (let ((folders '("src" "components" "bases")))
+    (if rdd-py/src-folder (cons rdd-py/src-folder folders) folders)))
+
+(defun rdd-py/find-project-root ()
+  "Find the root of the current Python project."
+  (auto-virtualenv-locate-project-root))
 
 (defun rdd-py/selected-region ()
   "Return the text of the currently selected region as-is."
   (when (use-region-p)
     (buffer-substring-no-properties (region-beginning) (region-end))))
-
 
 (defun rdd-py/get-absolute-file-path ()
   "Return the absolute path of the current buffer's file."
@@ -42,12 +42,20 @@
         (separated (remove "" (split-string with-allowed-chars "/"))))
     (mapconcat 'identity separated ".")))
 
+
+(defun rdd-py/remove-possible-src-folder (path folders)
+  "Remove the first match of FOLDERS from the beginning of PATH."
+  (let* ((pattern (concat "^" (mapconcat #'regexp-quote folders "\\|"))))
+    (replace-regexp-in-string pattern "" path)))
+
 (defun rdd-py/python-namespace-from-buffer ()
   "Generate a Python namespace from the current buffer's absolute file path."
   (let* ((file-path (rdd-py/get-absolute-file-path))
-         (top-namespace (rdd-py/find-top-namespace))
-         (relative-path (rdd-py/extract-relevant-path top-namespace file-path)))
-    (rdd-py/convert-path-to-python-namespace relative-path)))
+         (project-root (rdd-py/find-project-root))
+         (relative-path (rdd-py/extract-relevant-path project-root file-path))
+         (possible-src-folders (rdd-py/possible-src-folders))
+         (without-src-folder (rdd-py/remove-possible-src-folder relative-path possible-src-folders)))
+    (rdd-py/convert-path-to-python-namespace without-src-folder)))
 
 (defun rdd-py/import-python-namespace (namespace)
   "Import the NAMESPACE by sending Python code to the REPL."
