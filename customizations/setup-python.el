@@ -61,7 +61,8 @@
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'post-command-hook #'rdd-py/command-hook))
+  (add-hook 'pre-command-hook #'rdd-py/pre-command-hook)
+  (add-hook 'post-command-hook #'rdd-py/post-command-hook))
 
 (use-package flymake-ruff
   :ensure t
