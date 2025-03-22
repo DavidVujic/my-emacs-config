@@ -6,18 +6,18 @@
 
 ;;; Code:
 
-(defun rdd-py/jupyter-shell? ()
+(defun rdd-py/jupyter-kernel-shell? ()
   "Return t if the current Python shell is a Jupyter shell, otherwise nil."
   (let ((current-python-repl (get-buffer-process rdd-py/python-buffer-name)))
     (when current-python-repl
-      (let ((cmd (car (process-command current-python-repl))))
-        (and cmd (if (string-match "jupyter" cmd) t nil))))))
+      (let ((cmd (process-command current-python-repl)))
+        (if (and cmd (member "jupyter" cmd) (member "--existing" cmd)) t nil)))))
 
 
 (defun rdd-py/pre-command-hook ()
-  "When running with Jupyter: evaluate the current Python namespace."
+  "If running Jupyter with external kernel: evaluate the current Python ns."
   (when (eq this-command 'elpy-shell-send-region-or-buffer)
-    (when (rdd-py/jupyter-shell?)
+    (when (rdd-py/jupyter-kernel-shell?)
       (rdd-py/eval-python-namespace))))
 
 (defun rdd-py/post-command-hook ()
