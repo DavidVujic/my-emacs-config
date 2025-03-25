@@ -65,9 +65,10 @@
 (defun rdd-py/import-python-namespace (namespace)
   "Import the NAMESPACE by sending Python code to the REPL."
   (let ((top-namespace (car (split-string namespace "\\.")))
-        (selected-text (rdd-py/strip-parens-from-selected-region (rdd-py/selected-region))))
+        (selected-text (rdd-py/strip-parens-from-selected-region (rdd-py/selected-region)))
+        (selected-module (car (split-string selected-text "\\."))))
     (python-shell-send-string-no-output (concat "import " top-namespace))
-    (python-shell-send-string-no-output (concat "from " namespace " import " selected-text))))
+    (python-shell-send-string-no-output (concat "from " namespace " import " selected-module))))
 
 (defun rdd-py/eval-python-namespace ()
   "Evaluate a calculated namespace, based on the current buffer, to a REPL session."
