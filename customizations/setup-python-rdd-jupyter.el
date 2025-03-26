@@ -28,6 +28,12 @@
   (let ((file (buffer-file-name)))
     (expand-file-name file)))
 
+(defun rdd-py/namespace-package? (file-path)
+  "Check if the current FILE-PATH is a Python namespace package."
+  (let* ((parent (file-name-parent-directory file-path))
+         (possible-ns-package-file (concat parent "__init__.py")))
+    (file-exists-p possible-ns-package-file)))
+
 (defun rdd-py/extract-relevant-path (base path)
   "Extract the relative path from PATH by removing the BASE part."
   (let ((regexp (concat "^" (regexp-quote base))))
@@ -48,10 +54,9 @@
   (let* ((pattern (concat "^" (mapconcat #'regexp-quote folders "\\|"))))
     (replace-regexp-in-string pattern "" path)))
 
-(defun rdd-py/python-namespace-from-buffer ()
-  "Generate a Python namespace from the current buffer's absolute file path."
-  (let* ((file-path (rdd-py/get-absolute-file-path))
-         (project-root (rdd-py/find-project-root))
+(defun rdd-py/python-namespace-from-buffer (file-path)
+  "Generate a Python namespace from the current buffer's absolute FILE-PATH."
+  (let* ((project-root (rdd-py/find-project-root))
          (relative-path (rdd-py/extract-relevant-path project-root file-path))
          (possible-src-folders (rdd-py/possible-src-folders))
          (without-src-folder (rdd-py/remove-possible-src-folder relative-path possible-src-folders)))
@@ -61,6 +66,14 @@
 (defun rdd-py/strip-parens-from-selected-region (s)
   "Remove parentheses and everything between them from string S."
   (replace-regexp-in-string "(.*)" "" s))
+
+(defun rdd-py/reload-package (namespace)
+  "Reload the current namespace package (i.e. parent) for the NAMESPACE."
+  (let* ((parts (split-string namespace "\\."))
+        (without-module (butlast parts))
+        (namespace-package (mapconcat 'identity without-module ".")))
+    (python-shell-send-string "import importlib")
+    (python-shell-send-string (concat "importlib.reload(" namespace-package ")"))))
 
 (defun rdd-py/import-python-namespace (namespace)
   "Import the NAMESPACE by sending Python code to the REPL."
@@ -72,8 +85,10 @@
 
 (defun rdd-py/eval-python-namespace ()
   "Evaluate a calculated namespace, based on the current buffer, to a REPL session."
-  (let* ((namespace (rdd-py/python-namespace-from-buffer)))
-    (rdd-py/import-python-namespace namespace)))
+  (let* ((file-path (rdd-py/get-absolute-file-path))
+         (namespace (rdd-py/python-namespace-from-buffer file-path)))
+    (rdd-py/import-python-namespace namespace)
+    (when (rdd-py/namespace-package? file-path) (rdd-py/reload-package namespace))))
 
 (defun rdd-py/ask-for-kernel-file ()
   "Ask for a running Jupyter kernel."
