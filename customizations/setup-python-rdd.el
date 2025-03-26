@@ -13,14 +13,18 @@
       (let ((cmd (process-command current-python-repl)))
         (if (and cmd (member "jupyter" cmd) (member "--existing" cmd)) t nil)))))
 
+(defun rdd-py/prepare-jupyter-console ()
+  "Prepare the Jupyter console by importing the namespace and module."
+  (interactive)
+  (rdd-py/eval-python-namespace))
 
-(defun rdd-py/pre-command-hook ()
+(defun rdd-py/pre-command ()
   "If running Jupyter with external kernel: evaluate the current Python ns."
   (when (eq this-command 'elpy-shell-send-region-or-buffer)
     (when (rdd-py/jupyter-kernel-shell?)
-      (rdd-py/eval-python-namespace))))
+      (rdd-py/prepare-jupyter-console))))
 
-(defun rdd-py/post-command-hook ()
+(defun rdd-py/post-command ()
   "Run the REPL Driven Development overlay after the elpy command."
   (when (eq this-command 'elpy-shell-send-region-or-buffer)
     (let ((command this-command))

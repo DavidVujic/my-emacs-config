@@ -72,12 +72,12 @@
   (let* ((parts (split-string namespace "\\."))
         (without-module (butlast parts))
         (namespace-package (mapconcat 'identity without-module ".")))
-    (python-shell-send-string "import importlib")
-    (python-shell-send-string (concat "importlib.reload(" namespace-package ")"))))
+    (python-shell-send-string-no-output "import importlib")
+    (python-shell-send-string-no-output (concat "importlib.reload(" namespace-package ")"))))
 
 (defun rdd-py/import-python-namespace (namespace)
   "Import the NAMESPACE by sending Python code to the REPL."
-  (let ((top-namespace (car (split-string namespace "\\.")))
+  (let* ((top-namespace (car (split-string namespace "\\.")))
         (selected-text (rdd-py/strip-parens-from-selected-region (rdd-py/selected-region)))
         (selected-module (car (split-string selected-text "\\."))))
     (python-shell-send-string-no-output (concat "import " top-namespace))
