@@ -48,6 +48,11 @@
 (use-package auto-virtualenv
   :ensure t)
 
+(defun setup-elpy-command-hooks ()
+  "Setup the rdd-py specific command hooks in elpy mode."
+  (add-hook 'pre-command-hook #'rdd-py/pre-command nil t)
+  (add-hook 'post-command-hook #'rdd-py/post-command nil t))
+
 (use-package elpy
   :ensure t
   :defer t
@@ -61,8 +66,7 @@
   (setq gud-pdb-command-name "python -m pdb")
   (add-to-list 'company-backends 'company-jedi)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'pre-command-hook #'rdd-py/pre-command-hook)
-  (add-hook 'post-command-hook #'rdd-py/post-command-hook))
+  :hook (elpy-mode . setup-elpy-command-hooks))
 
 (use-package flymake-ruff
   :ensure t
