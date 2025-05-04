@@ -22,10 +22,13 @@
 
 
 (defun rdd-py/llm-insert-parameter-stubs (response _info)
-  (with-current-buffer rdd-py/python-buffer-name
-    (goto-char (point-max))
-    (insert response)
-    (comint-send-input)))
+  (rdd-py/output-overlay response t)
+  (when (yes-or-no-p "Evaluate? ")
+    (with-current-buffer rdd-py/python-buffer-name
+      (goto-char (point-max))
+      (insert response)
+      (comint-send-input)))
+  (rdd-py/remove-existing-overlay))
 
 
 (defun rdd-py/llm-generate-parameter-stubs ()
