@@ -68,7 +68,7 @@
          (truncated-output (rdd-py/truncate-content python-styled-output)))
     truncated-output))
 
-(defun rdd-py/output-overlay (output)
+(defun rdd-py/output-overlay (output &optional skip-handle-cursor)
    "Show overlay for evaluated OUTPUT."
   (rdd-py/remove-existing-overlay)
   (let ((line-end (save-excursion
@@ -78,6 +78,7 @@
     (setq rdd-py/overlay (make-overlay line-end line-end))
     (overlay-put rdd-py/overlay 'after-string (rdd-py/format-output output)))
   (setq rdd-py/my-last-cursor-pos (point))
-  (add-hook 'post-command-hook #'rdd-py/check-cursor-movement))
+  (when (not skip-handle-cursor)
+    (add-hook 'post-command-hook #'rdd-py/check-cursor-movement)))
 
 ;;; setup-python-rdd-overlay.el ends here
