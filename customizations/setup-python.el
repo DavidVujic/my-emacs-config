@@ -73,14 +73,10 @@
 
 ;; Python shell buffer
 (setq display-buffer-alist
-      '(
-        ((derived-mode . inferior-python-mode)
+      '(((derived-mode . inferior-python-mode)
          (display-buffer-reuse-mode-window display-buffer-below-selected)
          (dedicated . t)
-         (window-height . fit-window-to-buffer)
-         )
-        )
-      )
+         (window-height . fit-window-to-buffer))))
 
 (provide 'setup-python)
 
