@@ -60,8 +60,7 @@
   :hook (python-mode . flymake-ruff-load))
 
 (use-package py-isort
-  :ensure t
-  :hook (python-mode . py-isort))
+  :ensure t)
 
 (use-package python
   :hook ((python-mode . setup-pyenv)
