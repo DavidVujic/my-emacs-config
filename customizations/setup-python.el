@@ -72,14 +72,6 @@
   :ensure t
   :hook (python-mode . flymake-ruff-load))
 
-(use-package sideline
-  :hook (flycheck-mode . sideline-mode)
-  :init
-  (setq sideline-backends-right '(sideline-flycheck)))
-
-(use-package sideline-flycheck
-  :hook (flycheck-mode . sideline-flycheck-setup))
-
 (use-package python
   :hook ((python-mode . setup-pyenv)
          (python-mode . rdd-py/setup-ipython)

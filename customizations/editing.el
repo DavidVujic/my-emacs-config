@@ -76,6 +76,14 @@
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1))
 
+(use-package sideline
+  :hook (flycheck-mode . sideline-mode)
+  :init
+  (setq sideline-backends-right '(sideline-flycheck)))
+
+(use-package sideline-flycheck
+  :hook (flycheck-mode . sideline-flycheck-setup))
+
 ;; auto complete
 (add-hook 'after-init-hook 'global-company-mode)
 
