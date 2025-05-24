@@ -28,6 +28,7 @@
 
 (defun setup-python-virtual-environment ()
   "Setup Python virtual environment."
+  (interactive)
   (auto-virtualenv-setup)
   (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
 
