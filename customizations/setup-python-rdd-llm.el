@@ -7,7 +7,7 @@
 ;;; Code:
 
 (defvar rdd-py/llm-prompt-generate-function-parameter-stubs
-  "Generate one example value each input parameter, based on the parameter name and type.
+  "Generate one example value for each input parameter, based on the parameter name and type.
   The example value should be representative of the type and have meaningful content
   depending on the parameter name.
 
@@ -16,7 +16,7 @@
   Don't generate code comments.
   Don't add text that explains what you have done.
   It should be only Python code, nothing else.
-
+  IMPORTANT: the format should be \"parameter = the generated value\".
   All generated code has to be code that can be evaluated in a REPL."
   "Instruction for an LLM, to generate example values for function parameters.")
 
