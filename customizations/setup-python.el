@@ -12,13 +12,13 @@
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   (pyenv-mode +1))
 
-(defun format-buffer ()
+(defun format-python-buffer ()
   "Format the Python buffer using isort and black."
   (interactive)
   (py-isort-buffer)
   (blacken-buffer))
 
-(defun format-buffer-with-ruff ()
+(defun format-python-buffer-with-ruff ()
   "Format the Python buffer using `ruff`."
   (interactive)
   (save-buffer)
@@ -67,8 +67,8 @@
          (python-mode . rdd-py/setup-ipython)
          (python-mode . hs-minor-mode))
   :bind (:map python-mode-map
-              ("<f5>" . format-buffer)
-              ("<f6>" . format-buffer-with-ruff)))
+              ("<f5>" . format-python-buffer)
+              ("<f6>" . format-python-buffer-with-ruff)))
 
 ;; Python shell buffer
 (setq display-buffer-alist
