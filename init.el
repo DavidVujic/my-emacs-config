@@ -100,6 +100,7 @@
 (load "setup-python-rdd-llm.el")
 (load "setup-python-rdd.el")
 (load "setup-python.el")
+(load "setup-polymode.el")
 (load "setup-clojure.el")
 (load "setup-html.el")
 (load "setup-js.el")
