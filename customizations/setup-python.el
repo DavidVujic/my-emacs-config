@@ -5,7 +5,6 @@
 
 
 ;;; Code:
-(require 'py-isort)
 
 ;; Polymode: syntax highlighting for inline SQL statements in Python
 (define-hostmode poly-python-hostmode :mode 'python-mode)
@@ -71,6 +70,10 @@
 (use-package flymake-ruff
   :ensure t
   :hook (python-mode . flymake-ruff-load))
+
+(use-package py-isort
+  :ensure t
+  :hook (python-mode . py-isort))
 
 (use-package python
   :hook ((python-mode . setup-pyenv)
