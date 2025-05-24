@@ -32,13 +32,13 @@
   (auto-virtualenv-setup)
   (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
 
-(use-package auto-virtualenv
-  :ensure t)
-
 (defun setup-elpy-command-hooks ()
   "Setup the rdd-py specific command hooks in elpy mode."
   (add-hook 'pre-command-hook #'rdd-py/pre-command nil t)
   (add-hook 'post-command-hook #'rdd-py/post-command nil t))
+
+(use-package auto-virtualenv
+  :ensure t)
 
 (use-package elpy
   :ensure t
