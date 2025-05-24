@@ -26,7 +26,7 @@
   (shell-command (concat "ruff format " (buffer-file-name)))
   (revert-buffer t t t))
 
-(defun setup-virtual-environment ()
+(defun setup-python-virtual-environment ()
   "Setup Python virtual environment."
   (auto-virtualenv-setup)
   (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
@@ -45,7 +45,7 @@
   :init
   (advice-add 'python-mode :before 'elpy-enable)
   :config
-  (setup-virtual-environment)
+  (setup-python-virtual-environment)
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)
   (setq elpy-shell-echo-input nil)
