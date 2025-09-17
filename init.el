@@ -21,6 +21,7 @@
 (add-to-list 'package-pinned-packages '(tide . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(auto-virtualenv . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(eca . "melpa-stable") t)
 
 (package-initialize)
 
@@ -41,6 +42,7 @@
     company-quickhelp
     dockerfile-mode
     dumb-jump
+    eca
     editorconfig
     elpy
     emojify

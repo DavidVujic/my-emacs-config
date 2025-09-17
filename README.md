@@ -104,6 +104,12 @@ Major mode for editing Dockerfiles
 Dumb Jump is an Emacs "jump to definition" package with support for 40+ programming languages that favors "just working" over speed or accuracy.
 Note: to be able to find and jump to re-agent events and subscriptions I have added Silversearcher according to the dumb-jump install instructions. The lecacy dumb-jump-go, however, do find those without the extra OS dependency.
 
+### eca
+ECA (Editor Code Assistant) Emacs is an AI-powered pair-programming client for Emacs.
+Inspired by lsp-mode’s JSONRPC handling, it connects to an external eca server process to provide interactive chat, code suggestions, context management and more.
+
+Note: I installed the eca backend on Mac OS X with `brew install editor-code-assistant/brew/eca`.
+
 ### editorconfig
 EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs.
 
