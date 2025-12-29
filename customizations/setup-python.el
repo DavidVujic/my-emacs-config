@@ -30,7 +30,8 @@
   "Setup Python virtual environment."
   (interactive)
   (auto-virtualenv-setup)
-  (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root))))
+  (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root)))
+  (my/flycheck-python-customizations))
 
 (defun setup-elpy-command-hooks ()
   "Setup the rdd-py specific command hooks in elpy mode."
@@ -54,10 +55,6 @@
   (add-to-list 'company-backends 'company-jedi)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   :hook (elpy-mode . setup-elpy-command-hooks))
-
-(use-package flymake-ruff
-  :ensure t
-  :hook (python-mode . flymake-ruff-load))
 
 (use-package py-isort
   :ensure t)
