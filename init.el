@@ -49,7 +49,6 @@
     exec-path-from-shell
     flycheck
     flycheck-clj-kondo
-    flymake-ruff
     gptel
     graphql-mode
     ido-completing-read+
