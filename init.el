@@ -49,7 +49,6 @@
     exec-path-from-shell
     flycheck
     flycheck-clj-kondo
-    flymake-ruff
     gptel
     graphql-mode
     ido-completing-read+
@@ -101,6 +100,7 @@
 (load "setup-python-rdd-jupyter.el")
 (load "setup-python-rdd-llm.el")
 (load "setup-python-rdd.el")
+(load "setup-python-flycheck.el")
 (load "setup-python.el")
 (load "setup-polymode.el")
 (load "setup-clojure.el")
