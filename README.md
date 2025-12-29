@@ -26,15 +26,6 @@ This repo was originally forked from the [emacs for clojure repo](https://github
 
 ... and more. Have a look at the files in the [customizations](./customizations/) folder.
 
-### Python
-To enable flake8, mypy and black as soon as opening a Python file you will need to have those installed on your machine.
-
-``` shell
- pip3 install flake8 flake8-bugbear mypy black ruff
-```
-
-Alternatively, you can manually enable these tools after have activated a virtual environment (containing the tools) within Emacs.
-
 #### Python shell
 The shell is set to `IPython` and Emacs will expect to find it installed on your machine.
 
