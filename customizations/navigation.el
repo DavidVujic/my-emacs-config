@@ -61,9 +61,11 @@
   (ido-everywhere t))
 
 (use-package dumb-jump
-  :init
-  (dumb-jump-mode)
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+  :ensure t
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  ;; use completion read instead of a separate buffer
+  (setq xref-show-definitions-function #'xref-show-definitions-completing-read))
 
 (use-package smex
   :init
