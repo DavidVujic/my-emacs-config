@@ -220,8 +220,5 @@ A tree layout file explorer for Emacs.
 ### web-mode
 Major mode for editing web templates.
 
-### which-key
-Minor mode for Emacs that displays the key bindings following your currently entered incomplete command (a prefix) in a popup.
-
 ### yaml-mode
 Major mode for editing YAML files.

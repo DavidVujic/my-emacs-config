@@ -78,7 +78,6 @@
     typescript-mode
     treemacs
     web-mode
-    which-key
     yaml-mode))
 
 (dolist (p my-packages)
