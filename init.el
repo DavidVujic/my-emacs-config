@@ -21,6 +21,7 @@
 (add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(auto-virtualenv . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(eca . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
 
 (package-initialize)
 

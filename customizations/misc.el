@@ -37,6 +37,9 @@
   :config
   (which-key-mode))
 
+(use-package magit
+  :ensure t)
+
 (provide 'misc)
 
 ;;; misc.el ends here
