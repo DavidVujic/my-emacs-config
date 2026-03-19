@@ -29,7 +29,7 @@
 
 (add-hook 'web-mode-hook
           (lambda ()
-            (flycheck-add-mode 'typescript-tslint 'web-mode)
+            (flycheck-add-mode 'javascript-eslint 'web-mode)
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 
