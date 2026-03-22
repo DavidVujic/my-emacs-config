@@ -52,6 +52,17 @@ c.InteractiveShellApp.extensions = ['autoreload']
 c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 ```
 
+##### Python LSP
+I am evaluating `ty` as LSP server, using the built-in `eglot` to communicate with it.
+
+Ty need to be installed globally:
+``` shell
+uv tool install ty@latest
+
+# or
+pip install ty
+```
+
 ### Clojure
 Make sure you have `clj-kondo` installed on your machine according to the [install instructions](https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md)
 
