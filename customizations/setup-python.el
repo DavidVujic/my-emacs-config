@@ -52,8 +52,8 @@
   (setq elpy-formatter 'black)
   (setq elpy-shell-echo-input nil)
   (setq gud-pdb-command-name "python -m pdb")
-  (add-to-list 'company-backends 'company-jedi)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  ;; Disable elpy's Jedi and flymake to avoid conflicts with eglot
+  (setq elpy-modules (delq 'elpy-module-jedi (delq 'elpy-module-flymake elpy-modules)))
   :hook (elpy-mode . setup-elpy-command-hooks))
 
 (use-package py-isort
@@ -66,6 +66,16 @@
   :bind (:map python-mode-map
               ("<f5>" . format-python-buffer)
               ("<f6>" . format-python-buffer-with-ruff)))
+
+
+;;; Eglot Configuration for Python
+(use-package eglot
+  :ensure t
+  :hook (python-mode . eglot-ensure)
+  :config
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '(python-mode . ("ty" "lsp")))))
 
 ;; Python shell buffer
 (setq display-buffer-alist
