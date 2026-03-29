@@ -52,6 +52,17 @@ c.InteractiveShellApp.extensions = ['autoreload']
 c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 ```
 
+##### Python LSP
+I am evaluating `ty` as LSP server, using the built-in `eglot` to communicate with it.
+
+Ty need to be installed globally:
+``` shell
+uv tool install ty@latest
+
+# or
+pip install ty
+```
+
 ### Clojure
 Make sure you have `clj-kondo` installed on your machine according to the [install instructions](https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md)
 
@@ -118,6 +129,9 @@ On-the-fly syntax checking for GNU Emacs 24.
 
 ### flycheck-clj-kondo
 This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed globally on your machine according to the official install instructions.
+
+### flycheck-eglot
+A simple "glue" minor mode that allows Flycheck and Eglot to work together. Thus, the Flycheck frontend can display the results of syntactic checks performed by the LSP server.
 
 ### gptel
 GPTel is a simple Large Language Model chat client for Emacs, with support for multiple models/backends.
