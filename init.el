@@ -49,6 +49,7 @@
     exec-path-from-shell
     flycheck
     flycheck-clj-kondo
+    flycheck-eglot
     gptel
     graphql-mode
     ido-completing-read+

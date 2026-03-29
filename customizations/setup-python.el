@@ -68,22 +68,6 @@
               ("<f6>" . format-python-buffer-with-ruff)))
 
 
-;;; Eglot Configuration for Python
-(use-package eglot
-  :ensure t
-  :hook (python-mode . eglot-ensure)
-  :config
-  (add-to-list 'eglot-server-programs
-               '(python-mode . ("ty" "server")))
-  ;; Provide an empty workspace configuration for the "ty" section
-  ;; so that eglot can respond to workspace/configuration requests
-  (setq-default eglot-workspace-configuration '((:ty)))
-  ;; Customize keybindings for eglot to avoid conflicts with elpy
-  (define-key eglot-mode-map (kbd "C-c r r") 'eglot-rename)
-  (define-key eglot-mode-map (kbd "C-c r e") 'eglot-code-actions)
-  (define-key eglot-mode-map (kbd "C-c r f") 'eglot-find-references)
-  (define-key eglot-mode-map (kbd "C-c r d") 'eglot-find-definition))
-
 ;; Python shell buffer
 (setq display-buffer-alist
       '(((derived-mode . inferior-python-mode)

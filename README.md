@@ -130,6 +130,9 @@ On-the-fly syntax checking for GNU Emacs 24.
 ### flycheck-clj-kondo
 This package integrates clj-kondo with Emacs via flycheck. Make sure you also have clj-kondo installed globally on your machine according to the official install instructions.
 
+### flycheck-eglot
+A simple "glue" minor mode that allows Flycheck and Eglot to work together. Thus, the Flycheck frontend can display the results of syntactic checks performed by the LSP server.
+
 ### gptel
 GPTel is a simple Large Language Model chat client for Emacs, with support for multiple models/backends.
 
