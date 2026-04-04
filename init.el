@@ -110,6 +110,7 @@
 (load "setup-yaml.el")
 (load "setup-docker.el")
 (load "setup-llm.el")
+(load "setup-ibuffer.el")
 
 
 (provide 'init)
