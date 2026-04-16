@@ -47,7 +47,7 @@
                   (mode . org-mode))
                  ("Eca"
                   (or (mode . eca-chat-mode)
-                      (name . "^<eca:.*>")))
+                      (name . "^<eca.*>")))
                  ("Lisp"
                   (mode . emacs-lisp-mode))))))
   :hook
