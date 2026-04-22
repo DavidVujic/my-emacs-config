@@ -191,8 +191,8 @@ A framework for multiple major modes (MMM) inside a single Emacs buffer.
 
 I use this mode to get syntax highlighting for inline SQL in Python files. Activate the mode with M-x poly-python-sql-mode.
 
-### prettier
-js/ts prettier mode
+### prettier-js
+prettier-js for Emacs
 
 ### projectile
 Manage and navigate projects in Emacs easily

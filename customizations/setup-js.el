@@ -18,11 +18,13 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (company-mode +1)
-)
+  (prettier-js-mode +1))
 
 (defun inferior-js-mode-hook-setup ()
   "Add hook according to the js-comint docs."
   (add-hook 'comint-output-filter-functions 'js-comint-process-output))
+
+(use-package prettier-js)
 
 (add-hook 'js2-mode-hook #'setup-tide-mode)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)

@@ -67,7 +67,7 @@
     polymode
     projectile
     pyenv-mode
-    prettier
+    prettier-js
     rainbow-delimiters
     sideline
     sideline-flycheck
