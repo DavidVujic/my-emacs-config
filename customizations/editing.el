@@ -73,7 +73,6 @@
 (use-package flycheck-eglot
   :ensure t
   :after (flycheck eglot)
-  :custom (flycheck-eglot-exclusive nil)
   :config
   (global-flycheck-eglot-mode 1))
 
