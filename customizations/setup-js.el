@@ -11,20 +11,21 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 
 
+(use-package prettier-js
+  :ensure t
+  :hook ((js2-mode typescript-mode) . prettier-js-mode))
+
 (defun setup-tide-mode ()
   "Tide mode setup according to the official guide."
   (interactive)
   (tide-setup)
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  (company-mode +1)
-  (prettier-js-mode +1))
+  (company-mode +1))
 
 (defun inferior-js-mode-hook-setup ()
   "Add hook according to the js-comint docs."
   (add-hook 'comint-output-filter-functions 'js-comint-process-output))
-
-(use-package prettier-js)
 
 (add-hook 'js2-mode-hook #'setup-tide-mode)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
@@ -33,7 +34,8 @@
           (lambda ()
             (flycheck-add-mode 'javascript-eslint 'web-mode)
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
-              (setup-tide-mode))))
+              (setup-tide-mode)
+              (prettier-js-mode +1))))
 
 (add-hook 'inferior-js-mode-hook 'inferior-js-mode-hook-setup t)
 
