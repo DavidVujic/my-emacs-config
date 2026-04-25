@@ -40,6 +40,20 @@
 (use-package magit
   :ensure t)
 
+;; Save the Clipboard Before Killing
+;; Here’s a scenario: you copy a URL from your browser, switch to Emacs, kill a line with C-k,
+;; and then try to yank the URL you copied earlier with C-y. Gone.
+;; The kill replaced it on the clipboard.
+;; This setting makes Emacs save the existing clipboard content into the kill ring before
+;; overwriting it. Now C-y gets the kill, and M-y gets you back to the URL.
+;; Such a small thing, but it eliminates a genuinely annoying problem.
+(setq save-interprogram-paste-before-kill t)
+
+;; No Duplicates in the Kill Ring
+;; Kill the same line three times and you get three identical entries in the kill ring, wasting slots.
+;; This deduplicates them.
+(setq kill-do-not-save-duplicates t)
+
 (provide 'misc)
 
 ;;; misc.el ends here
