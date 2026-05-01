@@ -5,6 +5,7 @@
 
 ;;; Code:
 (require 'treemacs)
+(require 'my-fonts)
 
 (defun setup-theme ()
   "Editor theme."
@@ -33,16 +34,8 @@
 
   ;; Set fonts with fallback, and different sizes depending on system.
   (if (eq system-type 'darwin)
-      (cond
-       ((member "Fira Mono" (font-family-list))
-        (set-face-attribute 'default nil :height 168 :font "Fira Mono"))
-       ((member "Menlo" (font-family-list))
-        (set-face-attribute 'default nil :height 168 :font "Menlo")))
-    (cond
-     ((member "Roboto Mono" (font-family-list))
-      (set-face-attribute 'default nil :height 128 :font "Roboto Mono"))
-     ((member "DejaVu Sans Mono" (font-family-list))
-      (set-face-attribute 'default nil :height 138 :font "DejaVu Sans Mono"))))
+      (set-face-attribute 'default nil :height 168 :font my/font)
+      (set-face-attribute 'default nil :height 128 :font my/font))
 
   ;; These settings relate to how emacs interacts with your operating system
   (setq ;; makes killing/yanking interact with the clipboard
