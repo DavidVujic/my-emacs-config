@@ -12,7 +12,8 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((python . t)))
+ '((python . t)
+   (shell . t)))
 
 ;; Hide emphasis markers on formatted text
 (setq org-hide-emphasis-markers t)
