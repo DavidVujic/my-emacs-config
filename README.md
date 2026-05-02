@@ -234,6 +234,9 @@ TypeScript specific mode, using it in combination with tide.
 ### treemacs
 A tree layout file explorer for Emacs.
 
+### visual-fill-column
+A small Emacs minor mode that mimics the effect of fill-column in visual-line-mode. Instead of wrapping lines at the window edge, which is the standard behaviour of visual-line-mode, it wraps lines at fill-column (or visual-fill-column-width, if set).
+
 ### web-mode
 Major mode for editing web templates.
 

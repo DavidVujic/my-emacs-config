@@ -79,6 +79,7 @@
     tide
     typescript-mode
     treemacs
+    visual-fill-column
     web-mode
     yaml-mode))
 
