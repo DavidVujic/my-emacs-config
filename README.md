@@ -177,6 +177,9 @@ Allows you to move the current line using M-up / M-down if a region is marked, i
 ### multiple-cursors
 Multiple cursors for Emacs. This is some pretty crazy functionality, so yes, there are kinks. Don't be afraid though, I've been using it since 2011 with great success and much merriment.
 
+### org-present
+This is meant to be an extremely minimalist presentation tool for Emacs `org-mode`. Simply layout your presentation with each slide under a top-level header, start the minor mode with 'org-present', and page through each slide with left/right keys.
+
 ### pandoc-mode
 Minor mode for interacting with Pandoc.
 
