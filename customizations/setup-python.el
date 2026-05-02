@@ -1,4 +1,4 @@
-;;; setup-python.el --- Python
+;;; setup-python.el --- Python  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;  python customizations
@@ -26,12 +26,21 @@
   (shell-command (concat "ruff format " (buffer-file-name)))
   (revert-buffer t t t))
 
+(defvar-local my/python-virtualenv-root nil
+  "Buffer-local variable to cache the project root for the current buffer.")
+
 (defun setup-python-virtual-environment ()
   "Setup Python virtual environment."
   (interactive)
-  (auto-virtualenv-setup)
-  (pyvenv-activate (auto-virtualenv-find-local-venv (auto-virtualenv-locate-project-root)))
-  (my/flycheck-python-customizations))
+  (let ((project-root (auto-virtualenv-locate-project-root)))
+    (when (and project-root
+               (not (equal my/python-virtualenv-root project-root)))
+      (auto-virtualenv-setup)
+      (let ((venv (auto-virtualenv-find-local-venv project-root)))
+        (when venv
+          (pyvenv-activate venv)))
+      (my/flycheck-python-customizations)
+      (setq my/python-virtualenv-root project-root))))
 
 (defun setup-elpy-command-hooks ()
   "Setup the rdd-py specific command hooks in elpy mode."
@@ -45,9 +54,8 @@
   :ensure t
   :defer t
   :init
-  (advice-add 'python-mode :before 'elpy-enable)
+  (add-hook 'python-mode-hook #'elpy-enable)
   :config
-  (setup-python-virtual-environment)
   (setq elpy-test-runner 'elpy-test-pytest-runner)
   (setq elpy-formatter 'black)
   (setq elpy-shell-echo-input nil)
@@ -55,6 +63,12 @@
   ;; Disable elpy's Jedi and flymake to avoid conflicts with eglot
   (setq elpy-modules (delq 'elpy-module-jedi (delq 'elpy-module-flymake elpy-modules)))
   :hook (elpy-mode . setup-elpy-command-hooks))
+
+;; Disable elpy in org-mode buffers
+(add-hook 'org-mode-hook
+          (lambda ()
+            (when (bound-and-true-p elpy-mode)
+              (elpy-mode -1))))
 
 (use-package py-isort
   :ensure t)
@@ -74,6 +88,13 @@
          (display-buffer-reuse-mode-window display-buffer-below-selected)
          (dedicated . t)
          (window-height . fit-window-to-buffer))))
+
+;; Ensure setup-python-virtual-environment runs only once per Python buffer
+(add-hook 'python-virtual-env-only-once-hook
+          (lambda ()
+            (when (and (derived-mode-p 'python-mode)
+                       (not (derived-mode-p 'org-mode)))
+              (setup-python-virtual-environment))))
 
 (provide 'setup-python)
 

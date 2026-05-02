@@ -62,6 +62,7 @@
     markdown-mode
     move-text
     multiple-cursors
+    org-present
     pandoc-mode
     paredit
     polymode
@@ -87,6 +88,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
+(load "my-fonts.el")
 (load "misc.el")
 (load "ui.el")
 (load "shell-integration.el")
@@ -110,7 +112,8 @@
 (load "setup-docker.el")
 (load "setup-llm.el")
 (load "setup-ibuffer.el")
-
+(load "setup-org.el")
+(load "setup-org-present.el")
 
 (provide 'init)
 
