@@ -33,7 +33,7 @@
 (set-face-attribute 'org-document-title nil :font my/font :weight 'bold :height 1.3)
 
 ;; Make sure certain org faces use the fixed-pitch face when variable-pitch-mode is on
-(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-block nil :foreground unspecified :inherit 'fixed-pitch)
 (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
@@ -44,9 +44,9 @@
 
 ;; Remove background from all Org blocks
 (custom-set-faces
- '(org-block ((t :background nil :foreground nil)))
- '(org-block-begin-line ((t :background nil :foreground nil)))
- '(org-block-end-line ((t :background nil :foreground nil))))
+ '(org-block ((t :background unspecified :foreground unspecified)))
+ '(org-block-begin-line ((t :background unspecified :foreground unspecified)))
+ '(org-block-end-line ((t :background unspecified :foreground unspecified))))
 
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)

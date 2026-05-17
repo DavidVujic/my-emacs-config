@@ -38,7 +38,8 @@
   (which-key-mode))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Save the Clipboard Before Killing
 ;; Here’s a scenario: you copy a URL from your browser, switch to Emacs, kill a line with C-k,
