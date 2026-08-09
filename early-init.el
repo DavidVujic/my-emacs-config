@@ -58,4 +58,11 @@
             (setq file-name-handler-alist prot-emacs--file-name-handler-alist)
             (setq vc-handled-backends prot-emacs--vc-handled-backends)))
 
+;; patching an issue with Elpy and loading a Python mode function too early (or missing)
+(unless (fboundp 'python-info-current-defun)
+  (defun python-info-current-defun ()
+    (when (bound-and-true-p python-nav-master-function)
+      ;; Fallback or empty definition
+      nil)))
+
 ;;; early-init.el ends here
