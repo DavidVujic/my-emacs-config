@@ -1,4 +1,4 @@
-;;; setup-llm.el --- LLM
+;;; setup-llm.el --- LLM  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  LLM customizations

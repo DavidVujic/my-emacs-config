@@ -1,4 +1,4 @@
-;;; setup-python-rdd-overlay.el --- Python
+;;; setup-python-rdd-overlay.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Python REPL Driven Development customizations for Overlay

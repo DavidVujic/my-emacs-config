@@ -1,4 +1,4 @@
-;;; setup-ibuffer.el --- Ibuffer  -*- lexical-binding: t; -*-
+;;; setup-ibuffer.el --- Ibuffer  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  ibuffer customizations

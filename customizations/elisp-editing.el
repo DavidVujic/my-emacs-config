@@ -1,4 +1,4 @@
-;;; elisp-editing.el --- elisp editing
+;;; elisp-editing.el --- elisp editing  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; elisp editing customizations

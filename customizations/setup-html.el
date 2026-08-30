@@ -1,4 +1,4 @@
-;;; setup-html.el --- HTML
+;;; setup-html.el --- HTML  -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; html customizations
 

@@ -1,4 +1,4 @@
-;;; setup-python-rdd-llm.el --- Python
+;;; setup-python-rdd-llm.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  REPL Driven Development customizations using LLM

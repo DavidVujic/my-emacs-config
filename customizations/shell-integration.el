@@ -1,4 +1,4 @@
-;;; shell-integration.el --- shell
+;;; shell-integration.el --- shell  -*- lexical-binding: t -*-
 
 
 ;;; Commentary:

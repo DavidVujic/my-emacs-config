@@ -1,4 +1,4 @@
-;;; setup-org-present.el --- org-present  -*- lexical-binding: t; -*-
+;;; setup-org-present.el --- org-present  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; org-present customizations.

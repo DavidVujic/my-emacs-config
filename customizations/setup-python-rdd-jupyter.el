@@ -1,4 +1,4 @@
-;;; Setup-python-rdd-jupyter.el --- Python
+;;; Setup-python-rdd-jupyter.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Python REPL Driven Development using Jupyter and connecting to a running kernel

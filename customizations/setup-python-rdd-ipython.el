@@ -1,4 +1,4 @@
-;;; setup-python-rdd-ipython.el --- Python
+;;; setup-python-rdd-ipython.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Python REPL Driven Development using IPython

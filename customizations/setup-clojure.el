@@ -1,4 +1,4 @@
-;;; setup-clojure.el --- Clojure editing
+;;; setup-clojure.el --- Clojure editing  -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; Clojure and Cider customizations
 

@@ -1,4 +1,4 @@
-;;; setup-js.el --- JavaScript
+;;; setup-js.el --- JavaScript  -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; javascript customizations
 

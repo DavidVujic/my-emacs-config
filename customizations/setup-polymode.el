@@ -1,4 +1,4 @@
-;;; setup-polymode.el --- Python
+;;; setup-polymode.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Polymode customizations
