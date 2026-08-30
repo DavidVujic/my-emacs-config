@@ -1,4 +1,4 @@
-;;; early-init.el --- before initialization
+;;; early-init.el --- before initialization  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; UI customizations

@@ -1,4 +1,4 @@
-;;; misc.el --- Misc
+;;; misc.el --- Misc  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; Miscellaneous customizations

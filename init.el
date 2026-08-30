@@ -1,4 +1,4 @@
-;;; init.el --- initialization file for Emacs
+;;; init.el --- initialization file for Emacs  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; Emacs startup file

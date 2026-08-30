@@ -1,4 +1,4 @@
-;;; setup-python-flycheck.el --- Python
+;;; setup-python-flycheck.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Flycheck customizations for Python development

@@ -1,4 +1,4 @@
-;;; setup-python-rdd.el --- Python
+;;; setup-python-rdd.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Python REPL Driven Development

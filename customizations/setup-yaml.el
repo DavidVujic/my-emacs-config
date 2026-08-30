@@ -1,4 +1,4 @@
-;;; setup-yaml.el --- YAML
+;;; setup-yaml.el --- YAML  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; YAML syntax highlighting.

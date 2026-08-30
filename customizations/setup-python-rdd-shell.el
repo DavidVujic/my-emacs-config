@@ -1,4 +1,4 @@
-;;; setup-python-rdd-shell.el --- Python
+;;; setup-python-rdd-shell.el --- Python  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;  Python REPL Driven Development customizations for Overlay

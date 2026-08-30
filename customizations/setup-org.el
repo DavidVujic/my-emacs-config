@@ -1,4 +1,4 @@
-;;; setup-org.el --- setup Org Mode  -*- lexical-binding: t; -*-
+;;; setup-org.el --- setup Org Mode  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; setup-org customizations.

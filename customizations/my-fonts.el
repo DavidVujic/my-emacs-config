@@ -1,4 +1,4 @@
-;;; my-fonts.el --- fonts  -*- lexical-binding: t; -*-
+;;; my-fonts.el --- fonts  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; Use fonts depending on OS.

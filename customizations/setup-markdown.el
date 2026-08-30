@@ -1,4 +1,4 @@
-;;; setup-markdown.el --- Markdown -*- lexical-binding: t; -*-
+;;; setup-markdown.el --- Markdown  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; Markdown customizations
