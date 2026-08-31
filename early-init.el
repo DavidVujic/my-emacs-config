@@ -5,6 +5,10 @@
 
 ;;; Code:
 
+;; supress warnings about the lexical-binding directive
+(setopt warning-suppress-types '((files missing-lexbind-cookie))
+        warning-suppress-log-types '((files missing-lexbind-cookie)))
+
 ;; We up the gc threshold to temporarily prevent it from running, then
 ;; reset it later after startup is complete. Not resetting it will
 ;; cause stuttering/freezes.
