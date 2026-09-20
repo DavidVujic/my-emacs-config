@@ -31,7 +31,10 @@
   (set-default 'truncate-lines t)
   (editorconfig-mode 1)
   ;; Replace highlighted text when you type
-  (delete-selection-mode 1))
+  (delete-selection-mode 1)
+
+  ;; use minibuffer output, preventing the disturbing eldoc in a new buffer
+  (setq eldoc-display-functions '(eldoc-display-in-echo-area)))
 
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . 'mc/edit-lines)
@@ -85,6 +88,7 @@
   ;; Provide an empty workspace configuration for the "ty" section
   ;; so that eglot can respond to workspace/configuration requests
   (setq-default eglot-workspace-configuration '((:ty)))
+
   ;; Customize keybindings for eglot to avoid conflicts with tools like elpy
   (define-key eglot-mode-map (kbd "C-c r r") 'eglot-rename)
   (define-key eglot-mode-map (kbd "C-c r e") 'eglot-code-actions)
