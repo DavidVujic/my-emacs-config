@@ -114,6 +114,7 @@
 (load "setup-ibuffer.el")
 (load "setup-org.el")
 (load "setup-org-present.el")
+(load "setup-eca-customizations.el")
 
 (provide 'init)
 
