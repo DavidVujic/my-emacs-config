@@ -115,6 +115,11 @@
 (load "setup-org.el")
 (load "setup-org-present.el")
 
+;; to start emacsclient fast, by keeping emacs running
+(if (and (fboundp 'server-running-p)
+         (not (server-running-p)))
+    (server-mode 1))
+
 (provide 'init)
 
 ;;; init.el ends here
