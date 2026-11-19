@@ -21,8 +21,8 @@
 
 (defvar my/org-font
   (cond
-   ((member "Fira Sans" (font-family-list)) '"Fira Sans")
-   my/font)
+   ((member "Fira Sans" (font-family-list)) "Fira Sans")
+   (t my/font))
   "Org-Mode preference, secondly the font family based on the OS.")
 
 (provide 'my-fonts)
