@@ -114,6 +114,7 @@
 (load "setup-ibuffer.el")
 (load "setup-org.el")
 (load "setup-org-present.el")
+(load "setup-eca-customizations.el")
 
 ;; to start emacsclient fast, by keeping emacs running
 (if (and (fboundp 'server-running-p)
