@@ -19,6 +19,12 @@
      (t '"Ubuntu Mono"))))
   "The font family based on the OS.")
 
+(defvar my/org-font
+  (cond
+   ((member "Fira Sans" (font-family-list)) '"Fira Sans")
+   my/font)
+  "Org-Mode preference, secondly the font family based on the OS.")
+
 (provide 'my-fonts)
 
 ;;; my-fonts.el ends here

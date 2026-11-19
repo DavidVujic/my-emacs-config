@@ -18,7 +18,7 @@
   (setq header-line-format " ")
 
   ;; Tweak font sizes and ensure font family is set
-  (setq-local face-remapping-alist `((default (:family ,(face-attribute 'default :family) :height 1.5) variable-pitch)
+  (setq-local face-remapping-alist `((default (:family my/org-font :height 1.5 :foreground "#D3D3D3") variable-pitch)
                                      (header-line (:height 4.0) variable-pitch)
                                      (org-document-title (:height 1.75) org-document-title)
                                      (org-code (:family ,(face-attribute 'org-code :family) :height 1.55) org-code)
